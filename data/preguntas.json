@@ -1,0 +1,36 @@
+{
+  "preguntas": [
+    {
+      "id": 1,
+      "texto": "¿Qué es un closure en JavaScript?",
+      "opciones": [
+        "Una función con acceso a su propio scope y al de su función padre.",
+        "Un objeto con métodos privados.",
+        "Una nueva sintaxis para crear clases en ES6.",
+        "Un error cuando una variable no está definida."
+      ],
+      "respuestaCorrecta": 0,
+      "explicacion": "Un closure es una función que recuerda el entorno (scope) en el que fue creada, incluso después de que la función externa haya terminado de ejecutarse."
+    },
+    {
+      "id": 2,
+      "texto": "¿Cuál es la diferencia principal entre 'let' y 'var'?",
+      "opciones": [
+        "No hay diferencia, son sinónimos.",
+        "'let' tiene scope de bloque, 'var' tiene scope de función.",
+        "'let' no se puede reasignar, 'var' sí.",
+        "'var' es más rápido que 'let' en la ejecución."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "'let' limita la variable al bloque donde fue declarada, mientras que 'var' ignora los bloques."
+    }
+  ],
+  "preguntasEscritas": [
+    {
+      "id": 101,
+      "texto": "¿Qué palabra clave introducida en ES6 se utiliza para declarar una variable que NO puede ser reasignada?",
+      "respuestasValidas": ["const", "constante"],
+      "explicacion": "La palabra clave 'const' crea una referencia de solo lectura a un valor."
+    }
+  ]
+}
