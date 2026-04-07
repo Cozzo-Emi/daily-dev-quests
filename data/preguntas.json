@@ -1,36 +1,2159 @@
 {
+  "total_preguntas": 150,
+  "sets_incluidos": [
+    {
+      "set": 1,
+      "titulo": "Fundamentos: Buenas Prácticas, Python y JavaScript Vanilla"
+    },
+    {
+      "set": 2,
+      "titulo": "Closures, DOM, POO Python, Patrones"
+    },
+    {
+      "set": 3,
+      "titulo": "Algoritmos, Async JS, POO avanzado, Seguridad"
+    },
+    {
+      "set": 4,
+      "titulo": "Estructuras de datos, Módulos Python, JS avanzado, APIs"
+    },
+    {
+      "set": 5,
+      "titulo": "Git avanzado, Testing, Patrones avanzados, Python stdlib, JS DOM"
+    }
+  ],
   "preguntas": [
     {
       "id": 1,
-      "texto": "¿Qué es un closure en JavaScript?",
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué principio de diseño indica que una función o módulo debe tener una sola razón para cambiar?",
       "opciones": [
-        "Una función con acceso a su propio scope y al de su función padre.",
-        "Un objeto con métodos privados.",
-        "Una nueva sintaxis para crear clases en ES6.",
-        "Un error cuando una variable no está definida."
+        "Principio de Responsabilidad Única (SRP)",
+        "Principio Abierto/Cerrado (OCP)",
+        "Principio de Inversión de Dependencia (DIP)",
+        "Principio DRY"
       ],
       "respuestaCorrecta": 0,
-      "explicacion": "Un closure es una función que recuerda el entorno (scope) en el que fue creada, incluso después de que la función externa haya terminado de ejecutarse."
+      "explicacion": "El Principio de Responsabilidad Única (SRP, de SOLID) establece que cada clase, función o módulo debe ocuparse de una única responsabilidad. Si cambia el comportamiento de esa responsabilidad, solo ese componente debe modificarse."
     },
     {
       "id": 2,
-      "texto": "¿Cuál es la diferencia principal entre 'let' y 'var'?",
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué significa el principio DRY en programación?",
       "opciones": [
-        "No hay diferencia, son sinónimos.",
-        "'let' tiene scope de bloque, 'var' tiene scope de función.",
-        "'let' no se puede reasignar, 'var' sí.",
-        "'var' es más rápido que 'let' en la ejecución."
+        "Diseñar rutinas para tus requerimientos",
+        "No repetir código; cada pieza de conocimiento debe tener una sola representación en el sistema",
+        "Eliminar todas las variables temporales del código",
+        "Documentar todo el código de forma rigurosa"
       ],
       "respuestaCorrecta": 1,
-      "explicacion": "'let' limita la variable al bloque donde fue declarada, mientras que 'var' ignora los bloques."
+      "explicacion": "DRY significa 'Don't Repeat Yourself'. El objetivo es evitar la duplicación de lógica. Si la misma lógica aparece en dos lugares, un cambio futuro requiere modificar ambos, aumentando la posibilidad de errores."
+    },
+    {
+      "id": 3,
+      "categoria": "buenas_practicas",
+      "texto": "¿Cuál de las siguientes es una característica de un 'código limpio' según las buenas prácticas?",
+      "opciones": [
+        "Usar nombres de variables cortos como 'x', 'y', 'z' para escribir menos.",
+        "Que las funciones sean lo más largas posible para centralizar la lógica.",
+        "Nombres de variables y funciones descriptivos que expresen intención.",
+        "Evitar los comentarios para que el código sea más compacto."
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "El código limpio (Clean Code) prioriza la legibilidad. Nombres como 'calcularTotalFactura()' o 'usuarioActivo' comunican la intención directamente, reduciendo la necesidad de comentarios y haciendo el código autoexplicativo."
+    },
+    {
+      "id": 4,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el 'code smell' conocido como 'Magic Number'?",
+      "opciones": [
+        "Un número generado aleatoriamente en runtime.",
+        "Un número literal en el código cuyo significado no está explicado.",
+        "Un número mayor a 1000 usado en cálculos.",
+        "Una constante correctamente nombrada y documentada."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un Magic Number es un número hardcodeado como '7' o '3.14159' sin contexto. La solución es reemplazarlo por una constante nombrada: DIAS_SEMANA = 7, lo que hace el código legible y fácil de mantener."
+    },
+    {
+      "id": 5,
+      "categoria": "buenas_practicas",
+      "texto": "En el contexto de control de versiones con Git, ¿qué práctica se considera correcta al escribir mensajes de commit?",
+      "opciones": [
+        "Usar mensajes genéricos como 'fix' o 'update' para ser rápido.",
+        "Escribir un mensaje descriptivo que explique qué cambió y por qué.",
+        "No escribir mensajes de commit, Git los genera automáticamente.",
+        "Siempre hacer un solo commit al final del día con todos los cambios."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un buen mensaje de commit describe claramente qué se modificó y la motivación. Ejemplo: 'fix: corrige cálculo de descuento cuando el monto es cero'. Esto hace el historial legible para todo el equipo."
+    },
+    {
+      "id": 6,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la 'deuda técnica' en desarrollo de software?",
+      "opciones": [
+        "El costo monetario de las licencias de software.",
+        "El esfuerzo futuro generado por tomar atajos o soluciones rápidas hoy.",
+        "Los bugs que quedan sin resolver en producción.",
+        "El tiempo que tarda un equipo en aprender una nueva tecnología."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La deuda técnica es la acumulación de decisiones subóptimas (código sucio, sin tests, mal diseñado) que, como una deuda financiera, generan intereses: cada nueva feature tarda más y los bugs se multiplican si no se 'paga' refactorizando."
+    },
+    {
+      "id": 7,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué propone el principio YAGNI?",
+      "opciones": [
+        "Siempre anticipar necesidades futuras y construirlas de antemano.",
+        "No implementar funcionalidades hasta que realmente se necesiten.",
+        "Usar siempre el framework más popular del momento.",
+        "Escribir los tests antes que el código de producción."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "YAGNI ('You Aren't Gonna Need It') indica que no debés implementar algo porque 'quizás lo necesites algún día'. Genera código muerto, complejidad innecesaria y tiempo perdido. Implementá solo lo que se necesita hoy."
+    },
+    {
+      "id": 8,
+      "categoria": "buenas_practicas",
+      "texto": "¿Cuál es el objetivo principal de escribir tests unitarios?",
+      "opciones": [
+        "Reemplazar la documentación del código.",
+        "Verificar que unidades individuales de código funcionan correctamente de forma aislada.",
+        "Detectar únicamente bugs en producción.",
+        "Medir la velocidad de ejecución del código."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los tests unitarios validan el comportamiento de una función o clase de forma aislada. Permiten hacer refactorizaciones con confianza, documentan el comportamiento esperado y detectan regresiones rápidamente."
+    },
+    {
+      "id": 9,
+      "categoria": "python",
+      "texto": "¿Qué imprime el siguiente código Python?\n\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)",
+      "opciones": [
+        "[1, 2, 3]",
+        "[1, 2, 3, 4]",
+        "Error: no se puede modificar 'a' desde 'b'",
+        "[4]"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "En Python, las listas son objetos mutables. Al hacer 'b = a', ambas variables apuntan al mismo objeto en memoria. Modificar 'b' modifica el mismo objeto, por lo que 'a' también refleja el cambio. Para copiar, usar 'b = a.copy()' o 'b = a[:]'."
+    },
+    {
+      "id": 10,
+      "categoria": "python",
+      "texto": "¿Qué es un decorador en Python?",
+      "opciones": [
+        "Una forma de agregar comentarios visuales al código.",
+        "Una función que recibe otra función y extiende su comportamiento sin modificarla.",
+        "Un tipo especial de clase abstracta.",
+        "Una variable global con acceso desde cualquier módulo."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un decorador es una función de orden superior que envuelve a otra función, añadiendo lógica antes o después sin alterar su código. Se aplica con '@nombre_decorador' sobre la definición. Muy usado para logging, autenticación o cacheo."
+    },
+    {
+      "id": 11,
+      "categoria": "python",
+      "texto": "¿Cuál es la diferencia entre una lista y una tupla en Python?",
+      "opciones": [
+        "Las listas solo pueden contener números; las tuplas, cualquier tipo.",
+        "Las tuplas son mutables y las listas inmutables.",
+        "Las listas son mutables; las tuplas son inmutables.",
+        "No hay diferencia, son intercambiables."
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "Las listas ([]) se pueden modificar: agregar, eliminar o cambiar elementos. Las tuplas (()) son inmutables: una vez creadas no cambian. Las tuplas son más rápidas y se usan para datos que no deben cambiar, como coordenadas o registros fijos."
+    },
+    {
+      "id": 12,
+      "categoria": "python",
+      "texto": "¿Qué hace la expresión 'list(range(0, 10, 2))'?",
+      "opciones": [
+        "Genera una lista de 10 elementos comenzando en 2.",
+        "Genera [0, 2, 4, 6, 8].",
+        "Genera [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] de a 2 en 2.",
+        "Lanza un error porque range no acepta 3 argumentos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "range(inicio, fin, paso) genera números desde 'inicio' hasta 'fin' (exclusivo) con el 'paso' indicado. range(0, 10, 2) genera 0, 2, 4, 6, 8. El 10 no se incluye."
+    },
+    {
+      "id": 13,
+      "categoria": "python",
+      "texto": "¿Qué es una list comprehension en Python?",
+      "opciones": [
+        "Un método para ordenar listas automáticamente.",
+        "Una sintaxis concisa para crear listas aplicando una expresión a cada elemento de un iterable.",
+        "Una forma de comprimir listas para ahorrar memoria.",
+        "Un tipo de bucle while especializado para listas."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Una list comprehension tiene la forma '[expresión for elemento in iterable if condición]'. Por ejemplo, '[x**2 for x in range(5)]' genera [0, 1, 4, 9, 16]. Es más legible y eficiente que el equivalente con for + append."
+    },
+    {
+      "id": 14,
+      "categoria": "python",
+      "texto": "¿Cuál es el propósito del método __init__ en una clase Python?",
+      "opciones": [
+        "Destruir el objeto cuando ya no se usa.",
+        "Inicializar los atributos del objeto al momento de crearlo.",
+        "Definir métodos estáticos de la clase.",
+        "Exportar la clase para ser usada en otros módulos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "__init__ es el constructor de la clase. Se ejecuta automáticamente cuando se crea una instancia con 'MiClase()'. Es el lugar donde se definen y asignan los atributos iniciales del objeto usando 'self.atributo = valor'."
+    },
+    {
+      "id": 15,
+      "categoria": "python",
+      "texto": "¿Qué devuelve 'type({})' en Python?",
+      "opciones": [
+        "<class 'set'>",
+        "<class 'list'>",
+        "<class 'dict'>",
+        "<class 'tuple'>"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "Las llaves vacías '{}' crean un diccionario vacío en Python. Para crear un set vacío se debe usar 'set()'. Esto es una fuente común de confusión: '{1, 2, 3}' es un set, pero '{}' es un dict."
+    },
+    {
+      "id": 16,
+      "categoria": "python",
+      "texto": "¿Qué hace el operador ** en el contexto de **kwargs en una función Python?",
+      "opciones": [
+        "Eleva un número a una potencia.",
+        "Desempaqueta un diccionario como argumentos con nombre al llamar una función, o empaqueta argumentos con nombre en un dict dentro de la función.",
+        "Crea una copia profunda del diccionario.",
+        "Indica que el argumento es obligatorio."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Dentro de la firma de una función, **kwargs captura todos los argumentos con nombre extra en un diccionario. Al llamar una función, **mi_dict desempaqueta el diccionario como keyword arguments. Es muy usado para APIs flexibles."
+    },
+    {
+      "id": 17,
+      "categoria": "python",
+      "texto": "¿Qué es el 'duck typing' en Python?",
+      "opciones": [
+        "Un sistema de tipos estricto donde cada variable debe declararse.",
+        "Un patrón de diseño para sistemas de colas.",
+        "El principio de que el tipo de un objeto lo determina su comportamiento (sus métodos), no su clase.",
+        "Una forma de convertir tipos automáticamente."
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "Duck typing viene de 'si camina como pato y grazna como pato, es un pato'. Python no verifica la clase de un objeto sino si tiene los métodos necesarios. Si un objeto tiene .read(), puede usarse como archivo, sin importar su tipo."
+    },
+    {
+      "id": 18,
+      "categoria": "python",
+      "texto": "¿Cuál es la forma correcta de manejar un error de tipo 'FileNotFoundError' en Python?",
+      "opciones": [
+        "Usar un if-else antes de abrir el archivo.",
+        "Ignorarlo, Python lo resuelve automáticamente.",
+        "Usar un bloque try/except FileNotFoundError.",
+        "Usar el operador '??' como en otros lenguajes."
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "El manejo de excepciones en Python se hace con try/except. 'try: f = open(archivo)' intenta abrir; 'except FileNotFoundError: ...' captura el error específico si el archivo no existe. Siempre es mejor capturar excepciones específicas que usar 'except Exception'."
+    },
+    {
+      "id": 19,
+      "categoria": "python",
+      "texto": "¿Qué produce el siguiente código?\n\n[i for i in range(5) if i % 2 == 0]",
+      "opciones": [
+        "[1, 3]",
+        "[0, 2, 4]",
+        "[0, 1, 2, 3, 4]",
+        "[2, 4]"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La list comprehension itera sobre range(5) que genera 0, 1, 2, 3, 4. El filtro 'if i % 2 == 0' selecciona solo los pares (resto 0 al dividir por 2). Resultado: [0, 2, 4]."
+    },
+    {
+      "id": 20,
+      "categoria": "python",
+      "texto": "¿Cuál es la ventaja principal de usar un generador en lugar de una lista en Python?",
+      "opciones": [
+        "Los generadores son siempre más rápidos en cualquier operación.",
+        "Los generadores producen valores de uno en uno, consumiendo mucha menos memoria.",
+        "Los generadores permiten almacenar más elementos que una lista.",
+        "Los generadores son más fáciles de escribir que las listas."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un generador produce valores de forma lazy (bajo demanda), uno a la vez, sin cargar todos en memoria. Ideal para procesar archivos grandes o secuencias infinitas. Se crean con 'yield' en vez de 'return', o con expresiones generadoras: (x**2 for x in range(1000000))."
+    },
+    {
+      "id": 21,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la diferencia entre '==' y '===' en JavaScript?",
+      "opciones": [
+        "No hay diferencia, ambos comparan exactamente igual.",
+        "'==' compara valor y tipo; '===' compara solo valor.",
+        "'==' compara solo valor (con coerción de tipo); '===' compara valor y tipo.",
+        "'===' es solo para comparar strings."
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "'==' aplica coerción de tipo antes de comparar, por lo que '0 == false' es true. '===' compara sin coerción: '0 === false' es false. La buena práctica es usar siempre '===' para evitar comportamientos inesperados."
+    },
+    {
+      "id": 22,
+      "categoria": "javascript",
+      "texto": "¿Qué es el 'hoisting' en JavaScript?",
+      "opciones": [
+        "La capacidad de JavaScript de ejecutar código asíncrono.",
+        "El comportamiento de mover declaraciones de variables y funciones al inicio de su scope antes de la ejecución.",
+        "Una técnica para optimizar bucles.",
+        "El proceso de convertir código JavaScript a bytecode."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "El hoisting hace que las declaraciones con 'var' y las funciones declaradas (function foo(){}) estén disponibles desde el inicio del scope, aunque aparezcan después en el código. Las variables con 'let' y 'const' también se elevan pero no se inicializan (Temporal Dead Zone)."
+    },
+    {
+      "id": 23,
+      "categoria": "javascript",
+      "texto": "¿Qué devuelve 'typeof null' en JavaScript?",
+      "opciones": [
+        "'null'",
+        "'undefined'",
+        "'object'",
+        "'boolean'"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "'typeof null' devuelve 'object', lo cual es considerado un bug histórico de JavaScript que no se puede corregir por razones de compatibilidad. Para verificar si algo es null, usar '=== null' directamente."
+    },
+    {
+      "id": 24,
+      "categoria": "javascript",
+      "texto": "¿Cuál es el resultado de ejecutar este código?\n\nconsole.log(0.1 + 0.2 === 0.3)",
+      "opciones": [
+        "true",
+        "false",
+        "undefined",
+        "NaN"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "false. Los números de punto flotante en JS (IEEE 754) no pueden representar 0.1 ni 0.2 exactamente. 0.1 + 0.2 es en realidad 0.30000000000000004. Para comparar floats, usar Math.abs(a - b) < epsilon."
+    },
+    {
+      "id": 25,
+      "categoria": "javascript",
+      "texto": "¿Qué hace el método Array.prototype.map()?",
+      "opciones": [
+        "Filtra los elementos de un array según una condición.",
+        "Crea un nuevo array aplicando una función a cada elemento del array original.",
+        "Modifica el array original en su lugar.",
+        "Busca un elemento y devuelve su índice."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "map() itera sobre cada elemento, aplica el callback y devuelve un nuevo array con los resultados. El array original no se modifica. Ejemplo: [1,2,3].map(x => x * 2) devuelve [2,4,6]."
+    },
+    {
+      "id": 26,
+      "categoria": "javascript",
+      "texto": "¿Qué es el Event Loop en JavaScript?",
+      "opciones": [
+        "Un bucle for especial para manejar eventos del DOM.",
+        "El mecanismo que permite a JS (single-threaded) manejar operaciones asíncronas usando una call stack, una cola de callbacks y el Web API.",
+        "Una librería externa para gestionar eventos.",
+        "Un tipo de listener que se ejecuta indefinidamente."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "JS es single-threaded. El Event Loop monitorea la call stack y la callback queue: cuando la stack está vacía, toma el primer callback de la queue y lo ejecuta. Esto permite que setTimeout, fetch y otros no bloqueen el hilo principal."
+    },
+    {
+      "id": 27,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la diferencia entre 'null' y 'undefined' en JavaScript?",
+      "opciones": [
+        "Son exactamente lo mismo.",
+        "'undefined' significa ausencia de valor asignado; 'null' es la asignación explícita de 'sin valor'.",
+        "'null' es un error; 'undefined' es un valor válido.",
+        "'undefined' solo aparece en errores de tipo."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "'undefined' es el valor por defecto de una variable declarada pero no asignada, o de un parámetro no pasado. 'null' es un valor que un programador asigna intencionalmente para indicar 'vacío' o 'sin objeto'. Ambos son falsy."
+    },
+    {
+      "id": 28,
+      "categoria": "javascript",
+      "texto": "¿Qué hace 'event.preventDefault()' en un manejador de eventos?",
+      "opciones": [
+        "Detiene la propagación del evento hacia elementos padre.",
+        "Cancela el comportamiento por defecto del navegador para ese evento.",
+        "Elimina el event listener del elemento.",
+        "Pausa la ejecución del script por 1 segundo."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "preventDefault() cancela la acción nativa del navegador: evita que un formulario se envíe, que un link navegue, etc. No detiene la propagación (eso lo hace stopPropagation()). Muy útil para implementar lógica propia antes de la acción del browser."
+    },
+    {
+      "id": 29,
+      "categoria": "javascript",
+      "texto": "¿Qué es el 'scope léxico' (lexical scope) en JavaScript?",
+      "opciones": [
+        "El scope que se determina en tiempo de ejecución según el orden de los llamados.",
+        "El scope que se determina en tiempo de escritura del código, según la posición donde se declaran las funciones.",
+        "Un scope exclusivo de las arrow functions.",
+        "El scope global al que todas las funciones tienen acceso."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "El scope léxico significa que el scope de una función se determina por dónde fue escrita en el código, no por dónde se llama. Una función anidada tiene acceso a las variables de su función contenedora. Esta es la base del funcionamiento de los closures."
+    },
+    {
+      "id": 30,
+      "categoria": "javascript",
+      "texto": "¿Cuál es el comportamiento de 'this' dentro de una arrow function?",
+      "opciones": [
+        "Se refiere siempre al objeto global (window).",
+        "Se refiere al objeto que llama a la función.",
+        "No tiene su propio 'this'; hereda el 'this' del contexto léxico donde fue definida.",
+        "Arrow functions no pueden usar 'this'."
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "A diferencia de las funciones normales, las arrow functions no tienen su propio 'this'. Capturan el 'this' del contexto donde fueron definidas (scope léxico). Esto las hace ideales como callbacks en métodos de objetos, donde se quiere mantener el 'this' del objeto."
+    },
+    {
+      "id": 31,
+      "categoria": "javascript",
+      "texto": "¿Qué imprime el siguiente código?\n\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}",
+      "opciones": [
+        "0, 1, 2",
+        "3, 3, 3",
+        "undefined, undefined, undefined",
+        "0, 0, 0"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Como 'var' tiene scope de función y no de bloque, el bucle termina antes de que los callbacks se ejecuten. Para cuando los setTimeout disparan, 'i' ya vale 3. La solución es usar 'let' (que crea un scope nuevo por iteración) o un closure con IIFE."
+    },
+    {
+      "id": 32,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la forma correcta de agregar un elemento al final de un array en JavaScript?",
+      "opciones": [
+        "array.add(elemento)",
+        "array.append(elemento)",
+        "array.push(elemento)",
+        "array.insert(elemento)"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "push() agrega uno o más elementos al final del array y devuelve la nueva longitud. Para agregar al inicio existe unshift(). Para eliminar del final: pop(). Para eliminar del inicio: shift()."
+    },
+    {
+      "id": 33,
+      "categoria": "javascript",
+      "texto": "¿Qué devuelve document.querySelector('#miId') si el elemento no existe?",
+      "opciones": [
+        "undefined",
+        "false",
+        "null",
+        "Lanza un TypeError"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "querySelector devuelve null si no encuentra el elemento. Por eso siempre se debe verificar antes de usar el resultado: 'const el = document.querySelector('#miId'); if (el) { el.textContent = '...'; }'. Olvidar esta verificación es causa frecuente de 'Cannot read properties of null'."
+    },
+    {
+      "id": 34,
+      "categoria": "javascript",
+      "texto": "¿Qué es la delegación de eventos (event delegation)?",
+      "opciones": [
+        "Asignar el mismo listener a múltiples elementos uno por uno.",
+        "Escuchar eventos en un elemento padre aprovechando el bubbling, para manejar eventos de hijos dinámicos.",
+        "Pasar un evento de un script a otro.",
+        "Crear eventos personalizados con CustomEvent."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "En lugar de poner un listener en cada hijo, se pone uno en el padre. Gracias al bubbling, los eventos de los hijos suben al padre. Dentro del handler se usa event.target para saber qué hijo disparó el evento. Muy útil para listas dinámicas."
+    },
+    {
+      "id": 35,
+      "categoria": "javascript",
+      "texto": "¿Qué hace el método Array.prototype.reduce()?",
+      "opciones": [
+        "Reduce el tamaño del array eliminando duplicados.",
+        "Ejecuta una función acumuladora sobre cada elemento para producir un único valor resultante.",
+        "Filtra los elementos menores a cero.",
+        "Ordena el array de mayor a menor."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "reduce(callback, valorInicial) acumula los elementos. Ejemplo: [1,2,3,4].reduce((acc, curr) => acc + curr, 0) devuelve 10. Es muy poderoso: puede sumar, contar, agrupar, aplanar arrays y más."
+    },
+    {
+      "id": 36,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la diferencia entre textContent y innerHTML?",
+      "opciones": [
+        "No hay diferencia.",
+        "textContent establece texto plano (seguro); innerHTML parsea HTML (riesgo de XSS si viene de usuario).",
+        "innerHTML es más rápido que textContent siempre.",
+        "textContent solo funciona en elementos de formulario."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "textContent trata el contenido como texto literal: si ponés '<b>hola</b>' se muestra ese string. innerHTML lo interpreta como HTML. Nunca usar innerHTML con datos del usuario sin sanitizar, ya que permite inyección de scripts (XSS)."
+    },
+    {
+      "id": 37,
+      "categoria": "javascript",
+      "texto": "¿Qué devuelve Object.keys({a: 1, b: 2, c: 3})?",
+      "opciones": [
+        "[1, 2, 3]",
+        "['a', 'b', 'c']",
+        "{a, b, c}",
+        "3"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Object.keys() devuelve un array con las claves propias enumerables del objeto. Object.values() devuelve los valores. Object.entries() devuelve pares [clave, valor]. Muy útiles para iterar objetos."
+    },
+    {
+      "id": 38,
+      "categoria": "javascript",
+      "texto": "¿Qué operador se usa para el encadenamiento opcional (optional chaining) en JavaScript moderno?",
+      "opciones": [
+        "??",
+        "||",
+        "?.",
+        "&&"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "El operador ?. permite acceder a propiedades anidadas sin lanzar error si algún valor intermedio es null o undefined. 'usuario?.direccion?.calle' devuelve undefined si usuario o direccion son null/undefined, en vez de lanzar TypeError."
+    },
+    {
+      "id": 39,
+      "categoria": "javascript",
+      "texto": "¿Qué hace el método fetch() en JavaScript?",
+      "opciones": [
+        "Carga un archivo local desde el sistema de archivos.",
+        "Realiza peticiones HTTP y devuelve una Promise que resuelve en un objeto Response.",
+        "Obtiene elementos del DOM por selector.",
+        "Descarga y ejecuta scripts externos sincrónicamente."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "fetch() es la API moderna para hacer peticiones HTTP. Devuelve una Promise. Para obtener JSON: fetch(url).then(res => res.json()).then(data => ...). Con async/await: const res = await fetch(url); const data = await res.json()."
+    },
+    {
+      "id": 40,
+      "categoria": "javascript",
+      "texto": "¿Qué es el 'spread operator' (...) en JavaScript?",
+      "opciones": [
+        "Un operador para multiplicar arrays.",
+        "Una sintaxis que expande un iterable en lugares donde se esperan múltiples elementos.",
+        "Una forma de crear referencias a objetos.",
+        "Un operador exclusivo de strings."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "El spread (...) expande elementos. Copiar array: [...arr]. Combinar: [...a, ...b]. Copiar objeto: {...obj}. Pasar elementos como argumentos: Math.max(...numeros). Es diferente al rest (...args en firma), que agrupa argumentos en un array."
+    },
+    {
+      "id": 41,
+      "categoria": "python",
+      "texto": "¿Qué es la herencia en Python y cómo se implementa?",
+      "opciones": [
+        "Es copiar el código de una clase en otra manualmente.",
+        "Es cuando una clase hija extiende a una clase padre, definiendo la clase hija como: class Hija(Padre).",
+        "Es un tipo de decorador que comparte métodos.",
+        "Python no soporta herencia."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La herencia permite que una clase hija reutilice atributos y métodos de una clase padre. Se define con 'class Animal(Vertebrado):'. La hija puede sobreescribir métodos (override) y acceder a los del padre con super()."
+    },
+    {
+      "id": 42,
+      "categoria": "python",
+      "texto": "¿Cuál es la diferencia entre un método de instancia, un @classmethod y un @staticmethod?",
+      "opciones": [
+        "No hay diferencia funcional, son sinónimos.",
+        "El de instancia recibe 'self'; @classmethod recibe 'cls' (la clase); @staticmethod no recibe ninguno automáticamente.",
+        "@staticmethod solo puede llamarse desde fuera de la clase.",
+        "@classmethod modifica el objeto; @staticmethod no puede modificar nada."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los métodos de instancia operan sobre objetos concretos (self). Los classmethod operan sobre la clase (cls), útiles como factories. Los staticmethod son funciones que viven en la clase por organización pero no necesitan ni el objeto ni la clase."
+    },
+    {
+      "id": 43,
+      "categoria": "python",
+      "texto": "¿Qué hace el método .get() en un diccionario Python?",
+      "opciones": [
+        "Lanza un KeyError si la clave no existe, igual que dict[clave].",
+        "Devuelve el valor de la clave, o un valor por defecto (None si no se especifica) si la clave no existe.",
+        "Elimina la clave y devuelve su valor.",
+        "Devuelve una lista de todas las claves."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "dict.get('clave', valorPorDefecto) es seguro: si la clave no existe no lanza excepción. Ejemplo: config.get('timeout', 30) devuelve 30 si 'timeout' no está en el diccionario. Evita el patrón if clave in dict: ... else: ..."
+    },
+    {
+      "id": 44,
+      "categoria": "python",
+      "texto": "¿Qué es una función lambda en Python?",
+      "opciones": [
+        "Una función que se ejecuta en un hilo separado.",
+        "Una función anónima de una sola expresión, definida con la palabra clave 'lambda'.",
+        "Una función que solo acepta argumentos numéricos.",
+        "Una función recursiva optimizada."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Lambda crea funciones anónimas pequeñas: 'lambda x, y: x + y'. Son útiles como argumentos para sorted(), map(), filter(). Ejemplo: sorted(personas, key=lambda p: p['edad']). Para lógica compleja, preferir def por legibilidad."
+    },
+    {
+      "id": 45,
+      "categoria": "python",
+      "texto": "¿Qué diferencia hay entre 'is' y '==' en Python?",
+      "opciones": [
+        "Son idénticos en comportamiento.",
+        "'==' compara valores; 'is' compara identidad (si son el mismo objeto en memoria).",
+        "'is' compara valores; '==' compara tipos.",
+        "'is' solo funciona con números."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "'a == b' pregunta si los valores son iguales. 'a is b' pregunta si apuntan al mismo objeto. Ejemplo: a = [1,2]; b = [1,2]. a == b es True, a is b es False (son objetos distintos). Usar 'is' solo para comparar con None: 'if x is None'."
+    },
+    {
+      "id": 46,
+      "categoria": "python",
+      "texto": "¿Qué hace la función enumerate() en Python?",
+      "opciones": [
+        "Cuenta la cantidad de elementos de un iterable.",
+        "Devuelve un iterador que produce tuplas (índice, elemento) para cada item del iterable.",
+        "Ordena un iterable y devuelve los índices.",
+        "Convierte una lista en un diccionario numerado."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "enumerate() evita el patrón 'for i in range(len(lista)): item = lista[i]'. En su lugar: 'for i, item in enumerate(lista):'. También acepta un inicio: enumerate(lista, start=1). Es más pythonico y legible."
+    },
+    {
+      "id": 47,
+      "categoria": "python",
+      "texto": "¿Qué es el método __str__ en Python y cuándo se invoca?",
+      "opciones": [
+        "Define cómo se serializa el objeto a JSON.",
+        "Define la representación legible del objeto cuando se usa str() o print().",
+        "Convierte el objeto a string de forma interna solo para comparaciones.",
+        "Es el constructor del objeto, igual a __init__."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "__str__ define la representación 'amigable' del objeto. Se llama cuando usás str(objeto) o print(objeto). Diferente a __repr__, que da una representación técnica/debug. Si solo implementás uno, Python usa __repr__ como fallback para __str__."
+    },
+    {
+      "id": 48,
+      "categoria": "python",
+      "texto": "¿Qué hace la palabra clave 'global' dentro de una función en Python?",
+      "opciones": [
+        "Exporta la variable para ser usada en otros módulos.",
+        "Indica que la variable referencia o modifica la variable del scope global, no una local.",
+        "Hace la variable accesible solo dentro de esa función.",
+        "Convierte la variable en una constante."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Sin 'global', asignar a una variable dentro de una función crea una variable local. Con 'global x', la función modifica la variable 'x' del scope global. Su uso excesivo es una mala práctica: preferir pasar y retornar valores explícitamente."
+    },
+    {
+      "id": 49,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el patrón de diseño Singleton?",
+      "opciones": [
+        "Un patrón que garantiza que una clase tenga exactamente una instancia y provee un punto de acceso global.",
+        "Un patrón para crear múltiples instancias de un objeto con el mismo estado.",
+        "Un patrón que separa la interfaz de la implementación.",
+        "Un patrón exclusivo para bases de datos."
+      ],
+      "respuestaCorrecta": 0,
+      "explicacion": "Singleton restringe la instanciación de una clase a un único objeto. Útil para recursos compartidos como conexiones a DB o loggers. Sin embargo, introduce estado global y dificulta el testing, por lo que debe usarse con criterio."
+    },
+    {
+      "id": 50,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la inyección de dependencias?",
+      "opciones": [
+        "Una técnica de hacking para insertar código malicioso.",
+        "Un patrón donde los objetos reciben sus dependencias desde afuera en vez de crearlas internamente.",
+        "Una forma de importar módulos en Python.",
+        "Una técnica para optimizar consultas SQL."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "En vez de que una clase cree sus dependencias (acoplamiento alto), estas se le pasan desde afuera. Ejemplo: en vez de 'self.db = Database()', recibir 'def __init__(self, db):'. Facilita el testing (podés pasar mocks) y hace el código más flexible."
+    },
+    {
+      "id": 51,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué mide la 'cobertura de código' (code coverage) en testing?",
+      "opciones": [
+        "La cantidad de líneas de código del proyecto.",
+        "El porcentaje del código que es ejecutado durante los tests.",
+        "La cantidad de tests escritos por desarrollador.",
+        "La velocidad de ejecución de los tests."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La cobertura indica qué porcentaje de las líneas, ramas o funciones del código son alcanzadas por los tests. Un 100% no garantiza ausencia de bugs (los tests pueden ser malos), pero una cobertura baja garantiza código sin probar."
+    },
+    {
+      "id": 52,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el patrón MVC?",
+      "opciones": [
+        "Modelo-Vista-Controlador: separa la lógica de negocio, la presentación y el control del flujo.",
+        "Módulo-Variable-Clase: una forma de organizar archivos en Python.",
+        "Método-Valor-Contexto: un patrón para funciones puras.",
+        "Mock-Verify-Check: un patrón de testing."
+      ],
+      "respuestaCorrecta": 0,
+      "explicacion": "MVC divide la app en: Modelo (datos y lógica de negocio), Vista (presentación al usuario) y Controlador (intermediario que maneja input del usuario y coordina Modelo y Vista). Separa responsabilidades y facilita el mantenimiento."
+    },
+    {
+      "id": 53,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué significa el 'Principio Abierto/Cerrado' (Open/Closed Principle)?",
+      "opciones": [
+        "El código debe estar abierto para todos los desarrolladores y cerrado para los clientes.",
+        "Las entidades de software deben estar abiertas para extensión pero cerradas para modificación.",
+        "Las clases deben ser abiertas al inicio del proyecto y cerrarse al final.",
+        "Los módulos públicos deben estar abiertos; los privados, cerrados."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "OCP indica que podés agregar nueva funcionalidad extendiendo el código (nueva clase, herencia, composición) sin modificar el código existente. Esto evita romper funcionalidad ya testeada. Se logra con abstracciones e interfaces bien definidas."
+    },
+    {
+      "id": 54,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es un 'linter' y para qué se usa?",
+      "opciones": [
+        "Una herramienta que ejecuta tests automáticamente.",
+        "Una herramienta que analiza el código estáticamente para detectar errores, inconsistencias y violaciones de estilo.",
+        "Una herramienta para comprimir y minificar código.",
+        "Un sistema de control de versiones liviano."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un linter (como ESLint para JS o flake8/pylint para Python) revisa el código sin ejecutarlo. Detecta variables no usadas, posibles errores lógicos, incumplimiento de convenciones. Integrado al editor o al CI, mejora la calidad del código constantemente."
+    },
+    {
+      "id": 55,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la refactorización (refactoring)?",
+      "opciones": [
+        "Reescribir el código desde cero con una tecnología diferente.",
+        "Reestructurar el código existente mejorando su estructura interna sin cambiar su comportamiento externo.",
+        "Agregar nuevas funcionalidades a un sistema existente.",
+        "Eliminar código duplicado usando copy-paste."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Refactorizar mejora la legibilidad, reducción de duplicación y diseño sin alterar el comportamiento. Ejemplos: renombrar variables, extraer funciones, simplificar condicionales. Los tests existentes garantizan que el comportamiento no cambió."
+    },
+    {
+      "id": 56,
+      "categoria": "python",
+      "texto": "¿Cómo se define una propiedad de solo lectura en una clase Python usando @property?",
+      "opciones": [
+        "Prefijando el atributo con 'readonly_'.",
+        "Definiendo un método con @property que solo tiene getter, sin @atributo.setter.",
+        "Usando la palabra clave 'const' antes del atributo.",
+        "Definiendo el atributo en __init__ con doble guion bajo."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "@property convierte un método en un atributo accesible. Sin definir el setter (@nombre.setter), el atributo es de solo lectura: intentar asignarlo lanza AttributeError. Permite encapsular lógica de acceso sin cambiar la API pública."
+    },
+    {
+      "id": 57,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'os' en Python y para qué se usa?",
+      "opciones": [
+        "Para conectarse a sistemas operativos remotos via SSH.",
+        "Para interactuar con el sistema operativo: rutas, variables de entorno, archivos, directorios.",
+        "Para optimizar el código Python a nivel del SO.",
+        "Para crear interfaces gráficas nativas del sistema."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "El módulo 'os' provee funciones portables para interactuar con el SO: os.path.join(), os.getcwd(), os.listdir(), os.environ, os.makedirs(). Es fundamental para scripts que manipulan archivos o dependen del entorno."
+    },
+    {
+      "id": 58,
+      "categoria": "python",
+      "texto": "¿Qué hace el método .strip() en un string Python?",
+      "opciones": [
+        "Elimina todos los espacios del string, incluyendo los del medio.",
+        "Elimina espacios en blanco (y saltos de línea) al inicio y al final del string.",
+        "Convierte el string en una lista de caracteres.",
+        "Elimina los primeros y últimos caracteres sin importar cuáles sean."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "strip() elimina whitespace (espacios, tabs, \\n) de ambos extremos. lstrip() solo del inicio, rstrip() solo del final. También acepta caracteres específicos: '---hola---'.strip('-') devuelve 'hola'. Muy útil al procesar input de usuarios o archivos."
+    },
+    {
+      "id": 59,
+      "categoria": "python",
+      "texto": "¿Cuál es la forma más pythoníca de verificar si una lista está vacía?",
+      "opciones": [
+        "if len(lista) == 0:",
+        "if lista == []:",
+        "if not lista:",
+        "if lista.isEmpty():"
+      ],
+      "respuestaCorrecta": 2,
+      "explicacion": "En Python, los objetos vacíos son falsy: listas vacías [], diccionarios {}, strings '', 0, None. 'if not lista:' es la forma idiomática. Evita la comparación explícita con len() o []. Se aplica igual a strings, dicts, sets y tuplas."
+    },
+    {
+      "id": 60,
+      "categoria": "python",
+      "texto": "¿Qué es el contexto 'with' (context manager) en Python?",
+      "opciones": [
+        "Una forma de crear scopes locales para variables.",
+        "Un bloque que garantiza que recursos se abran y cierren correctamente, incluso si ocurre una excepción.",
+        "Una alternativa al try/except para manejo de errores.",
+        "Una forma de importar módulos temporalmente."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "'with open(archivo) as f:' garantiza que el archivo se cierre al salir del bloque, sea normal o por excepción. Implementa los métodos __enter__ y __exit__. Se usa para archivos, conexiones a DB, locks de threading y cualquier recurso que requiera limpieza."
+    },
+    {
+      "id": 61,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la complejidad temporal O(n) en algoritmos?",
+      "opciones": [
+        "El algoritmo siempre tarda 1 segundo sin importar el input.",
+        "El tiempo de ejecución crece de forma lineal con el tamaño del input.",
+        "El algoritmo hace exactamente n operaciones siempre.",
+        "O(n) es el peor algoritmo posible en términos de rendimiento."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La notación Big O describe cómo escala el tiempo (o espacio) de un algoritmo. O(n) significa que si el input se duplica, el tiempo aproximadamente se duplica. O(1) es constante, O(n²) crece cuadráticamente. Es clave para evaluar si un algoritmo es viable a gran escala."
+    },
+    {
+      "id": 62,
+      "categoria": "buenas_practicas",
+      "texto": "¿Cuál es la diferencia entre una búsqueda lineal y una búsqueda binaria?",
+      "opciones": [
+        "La búsqueda binaria busca en dos listas al mismo tiempo.",
+        "La búsqueda lineal revisa elemento por elemento O(n); la binaria divide el espacio a la mitad en cada paso O(log n), pero requiere lista ordenada.",
+        "La búsqueda lineal solo funciona con números; la binaria con cualquier tipo.",
+        "Son idénticas en rendimiento para listas pequeñas y grandes."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La búsqueda lineal revisa cada elemento hasta encontrar el buscado: O(n). La binaria compara con el elemento del medio, descarta la mitad irrelevante y repite: O(log n). Para 1 millón de elementos, la binaria necesita ~20 comparaciones; la lineal, hasta 1.000.000."
+    },
+    {
+      "id": 63,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es una función pura?",
+      "opciones": [
+        "Una función que no usa variables externas ni parámetros.",
+        "Una función que, dado el mismo input, siempre produce el mismo output y no tiene efectos secundarios.",
+        "Una función definida fuera de cualquier clase.",
+        "Una función que solo opera con tipos primitivos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Las funciones puras son predecibles y fáciles de testear: no modifican estado externo, no hacen I/O, no dependen de variables globales. Dados los mismos argumentos, siempre devuelven lo mismo. Son la base de la programación funcional."
+    },
+    {
+      "id": 64,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la inmutabilidad y por qué es valorada en programación?",
+      "opciones": [
+        "La imposibilidad de agregar métodos a una clase después de crearla.",
+        "El principio de no modificar datos una vez creados, creando nuevos datos en su lugar.",
+        "La característica de los lenguajes compilados de no cambiar en runtime.",
+        "Una propiedad exclusiva de los lenguajes funcionales puros."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los datos inmutables no pueden cambiar después de creados. Ventajas: el estado es predecible, evita bugs por mutación inesperada, facilita el razonamiento concurrente y el testing. Python tiene tuplas; JS tiene Object.freeze(). Strings y números son inmutables en ambos."
+    },
+    {
+      "id": 65,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el patrón Observer?",
+      "opciones": [
+        "Un patrón para monitorear el rendimiento de la aplicación.",
+        "Un patrón donde un objeto (sujeto) notifica automáticamente a sus dependientes (observadores) cuando su estado cambia.",
+        "Un patrón para registrar logs del sistema.",
+        "Un patrón que permite crear objetos sin especificar su clase."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Observer define una dependencia uno-a-muchos. Cuando el sujeto cambia estado, todos sus observadores registrados son notificados. Es la base de los sistemas de eventos del DOM, los data bindings en frameworks y los sistemas de mensajería reactiva."
+    },
+    {
+      "id": 66,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el principio de 'separación de responsabilidades' (Separation of Concerns)?",
+      "opciones": [
+        "Dividir el equipo de desarrollo en áreas especializadas.",
+        "Organizar el código de forma que cada parte se ocupe de una preocupación o aspecto específico del problema.",
+        "Usar múltiples archivos para que el código sea más corto.",
+        "Separar el código de producción del código de tests."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "SoC indica que distintos aspectos (lógica de negocio, acceso a datos, presentación) deben vivir en módulos separados. En web: HTML para estructura, CSS para estilo, JS para comportamiento. En backend: controladores, servicios, repositorios. Facilita cambios y mantenimiento."
+    },
+    {
+      "id": 67,
+      "categoria": "javascript",
+      "texto": "¿Qué es una Promise en JavaScript?",
+      "opciones": [
+        "Una variable que no puede cambiar de valor.",
+        "Un objeto que representa el resultado eventual (éxito o fallo) de una operación asíncrona.",
+        "Una función que se ejecuta automáticamente al cargar la página.",
+        "Un tipo especial de array para operaciones asíncronas."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Una Promise puede estar en tres estados: pending (en proceso), fulfilled (resuelta con valor) o rejected (rechazada con error). Se encadena con .then() para el éxito y .catch() para errores. Soluciona el 'callback hell' y es la base de async/await."
+    },
+    {
+      "id": 68,
+      "categoria": "javascript",
+      "texto": "¿Qué hace 'async/await' en JavaScript?",
+      "opciones": [
+        "Hace que el código sea verdaderamente paralelo usando múltiples hilos.",
+        "Permite escribir código asíncrono con apariencia y legibilidad de código síncrono.",
+        "Elimina la necesidad de manejar errores.",
+        "Solo funciona con fetch(), no con otras Promises."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "'async' marca una función como asíncrona; siempre devuelve una Promise. 'await' pausa la ejecución de la función async hasta que la Promise resuelve. El código parece síncrono pero no bloquea el hilo. Los errores se manejan con try/catch."
+    },
+    {
+      "id": 69,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la diferencia entre Promise.all() y Promise.allSettled()?",
+      "opciones": [
+        "Promise.all() es más rápido que Promise.allSettled().",
+        "Promise.all() falla si cualquier Promise falla; Promise.allSettled() espera a todas y reporta el resultado de cada una.",
+        "Promise.allSettled() cancela las demás promises si una falla.",
+        "No hay diferencia funcional entre ambas."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Promise.all() rechaza tan pronto como cualquier Promise es rechazada (fail-fast). Promise.allSettled() siempre espera a que todas terminen y devuelve un array con el estado de cada una ({status: 'fulfilled'/'rejected', value/reason}). Usar allSettled cuando necesitás todos los resultados."
+    },
+    {
+      "id": 70,
+      "categoria": "javascript",
+      "texto": "¿Qué es el Local Storage en el navegador?",
+      "opciones": [
+        "Un sistema de archivos del servidor accesible desde el cliente.",
+        "Un almacenamiento clave-valor en el navegador que persiste incluso al cerrar el tab.",
+        "Una base de datos SQL embebida en el navegador.",
+        "Un cache temporal que se borra al cerrar el tab."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "localStorage guarda pares clave-valor como strings en el navegador, persistiendo entre sesiones. API: localStorage.setItem('clave', valor), getItem('clave'), removeItem('clave'). Limitado a ~5MB, solo strings (usar JSON.stringify/parse para objetos). Para datos temporales: sessionStorage."
+    },
+    {
+      "id": 71,
+      "categoria": "javascript",
+      "texto": "¿Qué es el 'bubbling' de eventos en el DOM?",
+      "opciones": [
+        "Un error cuando un evento se dispara infinitamente.",
+        "El proceso por el cual un evento disparado en un elemento hijo se propaga hacia arriba a través de sus elementos padre.",
+        "La forma en que el navegador renderiza animaciones CSS.",
+        "Una técnica para crear efectos visuales de burbuja."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Cuando un evento ocurre en un elemento, primero se ejecutan los handlers de ese elemento, luego sube al padre, al abuelo, etc., hasta document. Esto es bubbling. Se puede detener con event.stopPropagation(). La captura (capture phase) va en dirección contraria."
+    },
+    {
+      "id": 72,
+      "categoria": "javascript",
+      "texto": "¿Qué devuelve JSON.parse('[1,2,3]')?",
+      "opciones": [
+        "El string '[1,2,3]' sin cambios.",
+        "Un array de JavaScript [1, 2, 3].",
+        "Un objeto JavaScript.",
+        "Lanza un SyntaxError."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "JSON.parse() convierte un string JSON en el tipo de dato JavaScript correspondiente. '[1,2,3]' se convierte en un array real. JSON.stringify() hace el proceso inverso. Importante: si el string no es JSON válido, JSON.parse() lanza SyntaxError; siempre usar try/catch."
+    },
+    {
+      "id": 73,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la diferencia entre 'for...of' y 'for...in' en JavaScript?",
+      "opciones": [
+        "Son intercambiables para cualquier tipo de dato.",
+        "'for...of' itera sobre valores de iterables (arrays, strings); 'for...in' itera sobre las claves de un objeto.",
+        "'for...in' es más moderno que 'for...of'.",
+        "'for...of' solo funciona con arrays de números."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "'for...of' recorre los valores: for (const num of [1,2,3]) da 1, 2, 3. 'for...in' recorre las claves: for (const key in {a:1, b:2}) da 'a', 'b'. Evitar 'for...in' en arrays ya que también itera propiedades heredadas del prototipo."
+    },
+    {
+      "id": 74,
+      "categoria": "javascript",
+      "texto": "¿Qué es la desestructuración (destructuring) en JavaScript?",
+      "opciones": [
+        "El proceso de eliminar propiedades de un objeto.",
+        "Una sintaxis para extraer valores de arrays u objetos y asignarlos a variables de forma concisa.",
+        "Una forma de convertir objetos en strings.",
+        "Una técnica para fusionar dos objetos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La desestructuración simplifica la extracción de valores. Arrays: 'const [a, b] = [1, 2]'. Objetos: 'const {nombre, edad} = persona'. Muy útil en parámetros de funciones: 'function saludar({nombre, edad}) {...}'. Soporta valores por defecto y renombrado."
+    },
+    {
+      "id": 75,
+      "categoria": "javascript",
+      "texto": "¿Qué es una función de orden superior (higher-order function)?",
+      "opciones": [
+        "Una función que ocupa más memoria que las funciones normales.",
+        "Una función que recibe otras funciones como argumento o devuelve una función.",
+        "Una función que opera únicamente sobre números altos.",
+        "Una función definida en el scope global."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Las higher-order functions son fundamentales en JS. map(), filter() y reduce() son ejemplos: reciben callbacks. También podés crear la tuya: function multiplicarPor(n) { return x => x * n; }. Permiten composición, reutilización y código más declarativo."
+    },
+    {
+      "id": 76,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'json' en Python y cómo se usa para leer un archivo JSON?",
+      "opciones": [
+        "Es una base de datos JSON nativa de Python.",
+        "Es un módulo que permite serializar/deserializar datos entre Python y formato JSON.",
+        "Es una extensión que debe instalarse con pip.",
+        "Es exclusivo para enviar datos por HTTP."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "El módulo json es de la librería estándar. json.loads(string) convierte JSON string a dict/list Python. json.dumps(objeto) hace lo inverso. Para archivos: 'with open(archivo) as f: data = json.load(f)'. Para escribir: 'json.dump(data, f, indent=4)'."
+    },
+    {
+      "id": 77,
+      "categoria": "python",
+      "texto": "¿Qué es la recursividad y cuál es su riesgo principal?",
+      "opciones": [
+        "Es cuando una función llama a otra función diferente. El riesgo es el acoplamiento.",
+        "Es cuando una función se llama a sí misma. El riesgo principal es un stack overflow si no hay caso base.",
+        "Es una técnica de optimización de bucles. El riesgo es el alto uso de CPU.",
+        "Es una forma de herencia múltiple. El riesgo es la ambigüedad."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La recursividad requiere siempre un caso base que detenga las llamadas. Sin él, la función se llama infinitamente hasta agotar el stack (RecursionError en Python). Python limita la profundidad a ~1000 llamadas. Para problemas muy profundos, una solución iterativa es más segura."
+    },
+    {
+      "id": 78,
+      "categoria": "python",
+      "texto": "¿Qué hace la función zip() en Python?",
+      "opciones": [
+        "Comprime archivos en formato ZIP.",
+        "Combina múltiples iterables elemento a elemento, produciendo tuplas.",
+        "Concatena dos listas en una sola.",
+        "Ordena dos listas simultáneamente."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "zip([1,2,3], ['a','b','c']) produce (1,'a'), (2,'b'), (3,'c'). Se detiene al acabarse el iterable más corto. Muy útil para iterar dos listas en paralelo: 'for nombre, edad in zip(nombres, edades):'. Para convertir a lista: list(zip(...))."
+    },
+    {
+      "id": 79,
+      "categoria": "python",
+      "texto": "¿Cómo se crea un entorno virtual en Python y por qué es importante?",
+      "opciones": [
+        "Con 'python --virtual'; permite ejecutar Python en modo seguro.",
+        "Con 'python -m venv nombre'; aísla las dependencias del proyecto de las del sistema.",
+        "Con 'pip install virtualenv'; sincroniza versiones entre proyectos.",
+        "Python crea entornos virtuales automáticamente en cada proyecto."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un entorno virtual crea un directorio con una instalación Python aislada. Evita conflictos entre versiones de paquetes de distintos proyectos. Flujo: 'python -m venv venv', luego 'source venv/bin/activate' (Linux/Mac) o 'venv\\Scripts\\activate' (Windows), luego 'pip install'."
+    },
+    {
+      "id": 80,
+      "categoria": "python",
+      "texto": "¿Qué es el método .format() o los f-strings en Python?",
+      "opciones": [
+        "Son métodos para formatear fechas exclusivamente.",
+        "Son formas de interpolar variables dentro de strings de manera legible.",
+        "Son funciones para dar formato a números con decimales.",
+        "Son exclusivos de Python 2."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los f-strings (Python 3.6+) son la forma moderna: f'Hola {nombre}, tenés {edad} años'. Son más legibles y rápidos que .format() o %. Soportan expresiones: f'{precio * 1.21:.2f}'. El .format() sigue siendo válido: 'Hola {}'.format(nombre)."
+    },
+    {
+      "id": 81,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el 'principio de mínimo privilegio' en seguridad?",
+      "opciones": [
+        "Los usuarios deben tener los permisos mínimos necesarios para realizar su tarea.",
+        "El código debe usar la menor cantidad de variables posible.",
+        "Las clases deben tener la menor cantidad de métodos públicos.",
+        "Los paquetes deben instalarse con permisos de usuario, no de admin."
+      ],
+      "respuestaCorrecta": 0,
+      "explicacion": "El principio de mínimo privilegio (PoLP) aplica a usuarios, procesos y sistemas: nadie debe tener más acceso del necesario. Limita el daño si una cuenta o componente es comprometido. Es fundamental en diseño de APIs, bases de datos y sistemas de autenticación."
+    },
+    {
+      "id": 82,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la inyección SQL y cómo se previene?",
+      "opciones": [
+        "Un ataque que sobrecarga el servidor con consultas. Se previene con caché.",
+        "Un ataque donde se insertan comandos SQL maliciosos en inputs. Se previene con consultas parametrizadas.",
+        "Un error de sintaxis en SQL. Se previene con un buen linter.",
+        "Una técnica para optimizar consultas SQL."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "SQL injection ocurre cuando el input del usuario se concatena directamente en una query. Ejemplo inseguro: 'SELECT * FROM users WHERE name = \"' + nombre + '\"'. Prevención: usar consultas parametrizadas o prepared statements. NUNCA construir SQL con strings del usuario."
+    },
+    {
+      "id": 83,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es XSS (Cross-Site Scripting)?",
+      "opciones": [
+        "Un error cuando CSS interfiere con JavaScript.",
+        "Un ataque donde se inyecta código malicioso en páginas vistas por otros usuarios.",
+        "Una técnica para compartir estilos entre múltiples sitios.",
+        "Un tipo de ataque de red que intercepta comunicaciones."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "XSS ocurre cuando una web incluye datos no sanitizados del usuario en el HTML. Un atacante puede inyectar scripts que roban cookies, redirigen usuarios o realizan acciones en nombre del usuario. Prevención: escapar output HTML, usar textContent en vez de innerHTML, Content Security Policy."
+    },
+    {
+      "id": 84,
+      "categoria": "buenas_practicas",
+      "texto": "¿Por qué nunca se deben hardcodear credenciales (contraseñas, API keys) en el código fuente?",
+      "opciones": [
+        "Porque hace el código más lento.",
+        "Porque si el código se sube a un repositorio o es accedido por terceros, las credenciales quedan expuestas.",
+        "Porque las contraseñas hardcodeadas no funcionan en producción.",
+        "Es aceptable si el repositorio es privado."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Las credenciales en código fuente son un riesgo crítico: repositorios 'privados' pueden hacerse públicos, logs pueden filtrarse, ex-empleados pueden acceder. La solución: variables de entorno, archivos .env (en .gitignore) o servicios de gestión de secretos."
+    },
+    {
+      "id": 85,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el control de versiones semántico (semver)?",
+      "opciones": [
+        "Un sistema de versiones basado en la fecha de lanzamiento.",
+        "Un esquema MAYOR.MENOR.PARCHE donde cada número indica el tipo de cambio realizado.",
+        "Un sistema de control de versiones alternativo a Git.",
+        "Una forma de etiquetar ramas en Git."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Semver: MAJOR.MINOR.PATCH. MAJOR: cambio incompatible (breaking change). MINOR: nueva funcionalidad compatible hacia atrás. PATCH: corrección de bugs. Ejemplo: 2.1.3 → pasar a 3.0.0 indica que algo se rompió. Fundamental para gestionar dependencias con npm o pip."
+    },
+    {
+      "id": 86,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'datetime' en Python?",
+      "opciones": [
+        "Un módulo para medir el tiempo de ejecución de funciones.",
+        "Un módulo de la librería estándar para trabajar con fechas, horas y duraciones.",
+        "Una librería externa para sincronización de tiempo entre servidores.",
+        "Un módulo para formatear la fecha de modificación de archivos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "datetime provee clases para fechas y horas. datetime.now() da la hora actual. Permite aritmética: fecha1 - fecha2 da un timedelta. Para formatear: fecha.strftime('%d/%m/%Y'). Para parsear strings: datetime.strptime('01/01/2024', '%d/%m/%Y')."
+    },
+    {
+      "id": 87,
+      "categoria": "python",
+      "texto": "¿Qué hace el método sorted() a diferencia de list.sort()?",
+      "opciones": [
+        "sorted() ordena en el lugar; list.sort() devuelve una nueva lista.",
+        "sorted() devuelve una nueva lista ordenada sin modificar el original; list.sort() modifica la lista en el lugar.",
+        "Son idénticos en comportamiento.",
+        "sorted() solo funciona con strings; list.sort() con cualquier tipo."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "list.sort() es un método in-place: modifica la lista original y devuelve None. sorted() recibe cualquier iterable y devuelve SIEMPRE una nueva lista. Ambos aceptan key= para personalizar la comparación y reverse=True. Si no querés modificar el original, usar sorted()."
+    },
+    {
+      "id": 88,
+      "categoria": "python",
+      "texto": "¿Cómo se maneja la herencia múltiple en Python y qué es el MRO?",
+      "opciones": [
+        "Python no soporta herencia múltiple.",
+        "Python soporta herencia múltiple; el MRO (Method Resolution Order) define el orden en que se buscan los métodos en la jerarquía de clases.",
+        "La herencia múltiple en Python genera siempre errores de ambigüedad.",
+        "El MRO es un módulo externo para resolver conflictos de herencia."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Python usa el algoritmo C3 linearization para el MRO. Al llamar un método, Python lo busca en la clase actual, luego en las clases padre de izquierda a derecha. Se puede ver con MiClase.__mro__. La función super() respeta el MRO, haciendo la herencia múltiple predecible."
+    },
+    {
+      "id": 89,
+      "categoria": "python",
+      "texto": "¿Qué es un set en Python y cuándo conviene usarlo?",
+      "opciones": [
+        "Un diccionario sin valores, solo claves.",
+        "Una colección no ordenada de elementos únicos, óptima para eliminar duplicados y verificar pertenencia.",
+        "Una lista inmutable con elementos únicos.",
+        "Un tipo de tupla con operaciones matemáticas de conjuntos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los sets almacenan elementos únicos sin orden. set([1,1,2,3]) da {1,2,3}. La verificación 'x in mi_set' es O(1) contra O(n) de una lista. Soportan operaciones de conjuntos: unión (|), intersección (&), diferencia (-). Ideal para eliminar duplicados o verificar membresía eficientemente."
+    },
+    {
+      "id": 90,
+      "categoria": "python",
+      "texto": "¿Qué es el polimorfismo en Python y cómo se expresa?",
+      "opciones": [
+        "La capacidad de una clase de tener múltiples constructores.",
+        "La capacidad de diferentes clases de responder al mismo método de forma específica a su tipo.",
+        "La herencia de múltiples clases padre.",
+        "La conversión automática de tipos en operaciones."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Polimorfismo en Python se logra principalmente por duck typing. Si Perro y Gato tienen el método .hablar(), podés llamar animal.hablar() sin importar el tipo. También con herencia y override de métodos. Python no requiere interfaces explícitas: si el objeto tiene el método, funciona."
+    },
+    {
+      "id": 91,
+      "categoria": "buenas_practicas",
+      "texto": "¿Cuál es la diferencia entre una pila (stack) y una cola (queue)?",
+      "opciones": [
+        "Una pila es FIFO (primero en entrar, primero en salir); una cola es LIFO.",
+        "Una pila es LIFO (último en entrar, primero en salir); una cola es FIFO.",
+        "Ambas son LIFO pero con distintas implementaciones.",
+        "No hay diferencia conceptual, solo de nombre."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Stack (pila): LIFO. El último elemento agregado es el primero en salir (como una pila de platos). Usado en el call stack, undo/redo, parsing. Queue (cola): FIFO. El primero en entrar es el primero en salir (como una fila). Usado en procesamiento de tareas, BFS."
+    },
+    {
+      "id": 92,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es un árbol binario de búsqueda (BST)?",
+      "opciones": [
+        "Un árbol donde cada nodo tiene exactamente dos hijos.",
+        "Una estructura donde cada nodo tiene hasta dos hijos; el hijo izquierdo es menor y el derecho es mayor que el nodo.",
+        "Un árbol que solo almacena valores booleanos.",
+        "Una estructura de datos lineal similar a una lista enlazada."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "En un BST, para cada nodo: todos los nodos del subárbol izquierdo son menores, todos los del derecho son mayores. Esto permite búsqueda, inserción y eliminación en O(log n) promedio. Si está balanceado, es muy eficiente; si está degenerado (como una lista), es O(n)."
+    },
+    {
+      "id": 93,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es un hash map (diccionario) y cuál es su complejidad de búsqueda?",
+      "opciones": [
+        "Una lista ordenada; la búsqueda es O(log n).",
+        "Una estructura que mapea claves a valores usando una función hash; la búsqueda promedio es O(1).",
+        "Un árbol binario; la búsqueda es O(n).",
+        "Una tabla de base de datos; la búsqueda depende del índice."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un hash map usa una función hash para convertir la clave en un índice del array interno. La búsqueda, inserción y eliminación son O(1) en promedio. Las colisiones pueden degradarlo a O(n) en el peor caso. Los dicts de Python y los objetos de JS son hash maps."
+    },
+    {
+      "id": 94,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la programación defensiva?",
+      "opciones": [
+        "Escribir código protegido con contraseñas.",
+        "Anticipar y manejar condiciones inesperadas: validar inputs, manejar errores y no asumir que los datos externos son correctos.",
+        "Usar solo librerías probadas y auditadas.",
+        "Escribir código que solo puede ser modificado por su autor."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La programación defensiva asume que los datos del exterior (usuario, API, archivo) pueden ser inválidos o maliciosos. Valida inputs, usa valores por defecto seguros, maneja excepciones, verifica precondiciones. Hace el software más robusto ante situaciones inesperadas."
+    },
+    {
+      "id": 95,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la integración continua (CI)?",
+      "opciones": [
+        "Integrar el trabajo de todos los desarrolladores en una sola rama al final del sprint.",
+        "Una práctica donde los cambios de código se integran frecuentemente y se verifican con builds y tests automáticos.",
+        "Un sistema para sincronizar bases de datos automáticamente.",
+        "Una técnica para combinar múltiples microservicios en uno."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "CI automatiza la verificación de cada cambio: al hacer push, se disparan tests, linters y builds automáticamente. Detecta problemas rápidamente, antes de llegar a producción. Herramientas populares: GitHub Actions, Jenkins, GitLab CI. CD (Continuous Delivery) extiende CI con deploy automático."
+    },
+    {
+      "id": 96,
+      "categoria": "javascript",
+      "texto": "¿Qué es el prototipo (prototype) en JavaScript?",
+      "opciones": [
+        "Una clase abstracta que no puede ser instanciada.",
+        "Un objeto del que otros objetos heredan propiedades y métodos mediante la cadena de prototipos.",
+        "Una copia temporal de un objeto para testing.",
+        "El primer objeto creado con 'new' en el programa."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "En JS, cada objeto tiene un prototipo interno (__proto__). Cuando accedés a una propiedad que el objeto no tiene, JS la busca en el prototipo, luego en el prototipo del prototipo, hasta null. Esto es la cadena de prototipos. Las clases ES6 son syntactic sugar sobre este mecanismo."
+    },
+    {
+      "id": 97,
+      "categoria": "javascript",
+      "texto": "¿Qué hace el método Array.prototype.filter()?",
+      "opciones": [
+        "Modifica el array eliminando los elementos que no cumplen la condición.",
+        "Devuelve un nuevo array con solo los elementos para los que el callback devuelve true.",
+        "Ordena el array según la condición del callback.",
+        "Busca el primer elemento que cumple la condición."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "filter() no modifica el array original. Ejemplo: [1,2,3,4,5].filter(x => x > 3) devuelve [4,5]. Si ningún elemento pasa la condición, devuelve []. Se puede encadenar con map() y reduce() para pipelines de transformación de datos."
+    },
+    {
+      "id": 98,
+      "categoria": "javascript",
+      "texto": "¿Qué es el 'nullish coalescing operator' (??) en JavaScript?",
+      "opciones": [
+        "Devuelve el operando derecho si el izquierdo es falsy (0, '', false, null, undefined).",
+        "Devuelve el operando derecho solo si el izquierdo es null o undefined.",
+        "Verifica si una variable está definida.",
+        "Es una alternativa al operador ternario."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La diferencia clave con || es que ?? solo considera null y undefined como 'sin valor'. Con ||: 0 || 'default' da 'default' (porque 0 es falsy). Con ??: 0 ?? 'default' da 0 (0 no es null ni undefined). Evita reemplazar valores válidos como 0 o '' por el default."
+    },
+    {
+      "id": 99,
+      "categoria": "javascript",
+      "texto": "¿Cuál es la forma correcta de clonar un objeto en JavaScript para evitar referencias compartidas?",
+      "opciones": [
+        "const clon = objeto",
+        "const clon = Object.assign({}, objeto) para una copia superficial, o structuredClone(objeto) para una copia profunda.",
+        "const clon = JSON.parse(objeto)",
+        "const clon = new Object(objeto)"
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La asignación solo copia la referencia. Object.assign() o {...objeto} hacen una copia superficial (shallow): propiedades anidadas siguen siendo referencias. structuredClone() (moderno) hace una copia profunda (deep clone). JSON.parse(JSON.stringify(obj)) también funciona pero no soporta funciones, Date como Date, etc."
+    },
+    {
+      "id": 100,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método setTimeout() y cuándo ejecuta realmente su callback?",
+      "opciones": [
+        "Ejecuta el callback exactamente después del tiempo indicado en milisegundos.",
+        "Programa el callback para ejecutarse después de al menos el tiempo indicado, pero puede demorar más si el call stack está ocupado.",
+        "Pausa la ejecución del script por el tiempo indicado.",
+        "Ejecuta el callback en un hilo separado del hilo principal."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "setTimeout no garantiza el tiempo exacto: es un mínimo. El callback va a la callback queue y solo se ejecuta cuando el call stack está vacío. setTimeout(fn, 0) no es inmediato: espera a que el stack se vacíe. El tiempo real puede ser mayor si el hilo está ocupado."
+    },
+    {
+      "id": 101,
+      "categoria": "python",
+      "texto": "¿Qué hace la función map() en Python?",
+      "opciones": [
+        "Crea un diccionario a partir de dos listas.",
+        "Aplica una función a cada elemento de un iterable y devuelve un iterador con los resultados.",
+        "Busca un elemento en una lista y devuelve su posición.",
+        "Crea una copia mapeada de un diccionario."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "map(funcion, iterable) aplica la función a cada elemento. list(map(str, [1,2,3])) da ['1','2','3']. Es lazy: devuelve un iterador, no una lista. En Python 3 es preferible una list comprehension por legibilidad, pero map puede ser más eficiente con funciones built-in."
+    },
+    {
+      "id": 102,
+      "categoria": "python",
+      "texto": "¿Qué es la anotación de tipos (type hints) en Python?",
+      "opciones": [
+        "Un sistema que convierte Python en un lenguaje de tipado estático.",
+        "Una sintaxis opcional para declarar los tipos esperados de variables, parámetros y retornos, que mejora la legibilidad y permite análisis estático.",
+        "Un tipo especial de comentario que Python ignora completamente.",
+        "Una característica exclusiva de Python 3.10+."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los type hints (PEP 484) son opcionales y no los verifica el intérprete en runtime. Ejemplo: 'def suma(a: int, b: int) -> int:'. Herramientas como mypy o pyright los verifican estáticamente. Mejoran la documentación y la detección temprana de errores."
+    },
+    {
+      "id": 103,
+      "categoria": "python",
+      "texto": "¿Qué es un dataclass en Python?",
+      "opciones": [
+        "Una clase especial para manejar bases de datos.",
+        "Un decorador que genera automáticamente métodos como __init__, __repr__ y __eq__ basándose en los atributos declarados.",
+        "Una clase que solo puede contener atributos, sin métodos.",
+        "Una forma de definir clases abstractas."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Con @dataclass, en vez de escribir __init__ manualmente, declarás los atributos con anotaciones y Python genera el constructor y otros métodos automáticamente. Ejemplo: @dataclass class Punto: x: float; y: float. Reduce código boilerplate considerablemente."
+    },
+    {
+      "id": 104,
+      "categoria": "python",
+      "texto": "¿Qué hace el operador walrus (:=) en Python 3.8+?",
+      "opciones": [
+        "Crea una copia profunda del objeto de la derecha.",
+        "Asigna un valor a una variable y al mismo tiempo lo usa como expresión dentro de una condición.",
+        "Compara dos objetos por identidad, similar a 'is'.",
+        "Define una variable como constante."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "El operador walrus permite asignar y evaluar en la misma expresión. Ejemplo: 'while chunk := f.read(8192):' lee bloques y evalúa si está vacío en un solo paso. Evita repetir la llamada a una función. Útil en comprehensions: [y for x in datos if (y := procesar(x)) > 0]."
+    },
+    {
+      "id": 105,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'collections' y cuáles son sus estructuras más útiles?",
+      "opciones": [
+        "Es un módulo para gestionar bases de datos de colecciones.",
+        "Es un módulo de la librería estándar con tipos de datos especializados como Counter, defaultdict, deque y namedtuple.",
+        "Es una librería externa para operaciones matemáticas sobre colecciones.",
+        "Es un módulo para agrupar archivos en colecciones."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "collections ofrece: Counter (cuenta ocurrencias), defaultdict (dict con valor por defecto para claves inexistentes), deque (cola doble eficiente), namedtuple (tupla con campos nombrados), OrderedDict. Evitan reimplementar estructuras comunes manualmente."
+    },
+    {
+      "id": 106,
+      "categoria": "python",
+      "texto": "¿Cómo se lee y escribe un archivo de texto en Python correctamente?",
+      "opciones": [
+        "Usando file.open() y file.close() del módulo 'io'.",
+        "Usando el context manager 'with open(ruta, modo) as f:' para garantizar el cierre automático.",
+        "Usando la función readfile() de la librería estándar.",
+        "Python no puede leer archivos directamente; se necesita una librería externa."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La forma correcta: 'with open('archivo.txt', 'r', encoding='utf-8') as f: contenido = f.read()'. El with garantiza que el archivo se cierre. Modos: 'r' (leer), 'w' (escribir, sobrescribe), 'a' (append), 'rb'/'wb' (binario). Siempre especificar encoding para texto."
+    },
+    {
+      "id": 107,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es una API REST y cuáles son sus características principales?",
+      "opciones": [
+        "Una API que solo funciona con bases de datos relacionales.",
+        "Una interfaz que usa HTTP con recursos identificados por URLs, operaciones mediante verbos HTTP (GET, POST, PUT, DELETE) y comunicación sin estado.",
+        "Un protocolo propietario de comunicación entre servidores.",
+        "Una API que solo puede ser consumida desde JavaScript."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "REST (Representational State Transfer) es un estilo arquitectónico: sin estado (cada request es independiente), recursos en URLs (/usuarios/123), verbos HTTP para operaciones, generalmente JSON como formato. GET lee, POST crea, PUT/PATCH actualiza, DELETE elimina."
+    },
+    {
+      "id": 108,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el formato JSON y cuáles son sus tipos de datos válidos?",
+      "opciones": [
+        "Solo admite strings y números.",
+        "Admite strings, números, booleanos (true/false), null, arrays y objetos.",
+        "Admite todos los tipos de Python o JavaScript, incluyendo funciones.",
+        "Es un formato binario optimizado para velocidad."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "JSON (JavaScript Object Notation) es texto plano con tipos limitados: string ('texto'), number (42, 3.14), boolean (true/false), null, array ([...]) y object ({...}). No soporta fechas como tipo nativo (se usan strings ISO 8601), ni undefined, ni funciones, ni comentarios."
+    },
+    {
+      "id": 109,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué son los códigos de estado HTTP y qué indica cada rango?",
+      "opciones": [
+        "Son números de versión del protocolo HTTP.",
+        "2xx indica éxito, 3xx redirecciones, 4xx errores del cliente, 5xx errores del servidor.",
+        "1xx éxito, 2xx redirección, 3xx error, 4xx éxito parcial.",
+        "Son códigos internos que el usuario nunca ve."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "200 OK, 201 Created, 204 No Content (éxito). 301/302 redirecciones. 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 422 Unprocessable Entity (errores del cliente). 500 Internal Server Error, 503 Service Unavailable (errores del servidor)."
+    },
+    {
+      "id": 110,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es CORS (Cross-Origin Resource Sharing)?",
+      "opciones": [
+        "Un protocolo de encriptación para APIs.",
+        "Un mecanismo de seguridad del navegador que restringe peticiones HTTP entre orígenes distintos, que el servidor puede permitir con headers específicos.",
+        "Un sistema de caché para peticiones HTTP.",
+        "Una técnica para comprimir respuestas JSON."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Por seguridad, los navegadores bloquean peticiones de 'mifrontend.com' a 'otraapi.com'. CORS permite que el servidor declare qué orígenes son permitidos mediante el header 'Access-Control-Allow-Origin'. Es una política del navegador: las peticiones entre servidores no están afectadas."
+    },
+    {
+      "id": 111,
+      "categoria": "javascript",
+      "texto": "¿Qué hace el método Array.prototype.find()?",
+      "opciones": [
+        "Devuelve el índice del primer elemento que cumple la condición.",
+        "Devuelve el valor del primer elemento que cumple la condición, o undefined si no hay ninguno.",
+        "Devuelve un array con todos los elementos que cumplen la condición.",
+        "Verifica si algún elemento cumple la condición y devuelve true o false."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "find() devuelve el primer elemento (no el índice) que pasa la condición del callback. Para el índice existe findIndex(). Para verificar si existe alguno: some(). Para verificar si todos cumplen: every(). Para obtener todos los que cumplen: filter()."
+    },
+    {
+      "id": 112,
+      "categoria": "javascript",
+      "texto": "¿Qué es el patrón módulo (Module Pattern) en JavaScript vanilla?",
+      "opciones": [
+        "Una forma de importar módulos con require().",
+        "Una técnica usando closures para crear encapsulamiento: variables privadas y una API pública expuesta en un objeto.",
+        "Un patrón exclusivo de Node.js.",
+        "La forma de organizar archivos en un proyecto JavaScript."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Antes de los módulos ES6, el Module Pattern usaba IIFEs para crear scope: const miModulo = (function() { let privado = 0; return { incrementar() { privado++ }, obtener() { return privado; } }; })(); Las variables privadas son inaccesibles desde afuera gracias al closure."
+    },
+    {
+      "id": 113,
+      "categoria": "javascript",
+      "texto": "¿Cómo se exporta e importa código entre archivos con módulos ES6?",
+      "opciones": [
+        "Con require() e module.exports al igual que CommonJS.",
+        "Con 'export' para exportar y 'import' para importar; el script debe tener type='module' en HTML.",
+        "Con window.miVariable para compartir entre archivos.",
+        "Los módulos ES6 no son compatibles con navegadores; solo funcionan en Node.js."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "ES6 modules: 'export function suma(a,b) { return a+b }' o 'export default MiClase'. Para importar: 'import { suma } from ./utils.js' o 'import MiClase from ./MiClase.js'. En HTML: <script type='module' src='app.js'>. Soportado en todos los navegadores modernos."
+    },
+    {
+      "id": 114,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método querySelectorAll() y qué devuelve?",
+      "opciones": [
+        "Devuelve el primer elemento que coincide con el selector CSS.",
+        "Devuelve una NodeList (similar a un array) con todos los elementos que coinciden con el selector CSS.",
+        "Devuelve un array real de elementos.",
+        "Devuelve un HTMLCollection actualizado dinámicamente."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "querySelectorAll devuelve una NodeList estática. Acepta cualquier selector CSS válido: '#id', '.clase', 'ul li', '[data-attr]'. Para iterar se puede usar forEach directamente sobre la NodeList, o convertirla a array: Array.from(nodeList) o [...nodeList]."
+    },
+    {
+      "id": 115,
+      "categoria": "javascript",
+      "texto": "¿Qué es la coerción implícita de tipos en JavaScript?",
+      "opciones": [
+        "La conversión explícita con Number(), String() o Boolean().",
+        "La conversión automática que JavaScript hace entre tipos en ciertas operaciones, que puede producir resultados inesperados.",
+        "Un error que JavaScript lanza cuando los tipos no coinciden.",
+        "La forma en que TypeScript maneja los tipos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "JS convierte tipos automáticamente: '5' + 3 = '53' (string), '5' - 3 = 2 (número), true + 1 = 2. Esto causa bugs sutiles. '[] + []' es '', '[] + {}' es '[object Object]'. Por eso se recomienda siempre usar === y hacer conversiones explícitas cuando se necesitan."
+    },
+    {
+      "id": 116,
+      "categoria": "python",
+      "texto": "¿Qué es Pytest y cómo se diferencia del módulo unittest de la librería estándar?",
+      "opciones": [
+        "Pytest es solo un wrapper de unittest sin ventajas reales.",
+        "Pytest es un framework de testing externo con sintaxis más simple (funciones comunes sin clases), fixtures poderosas y mejor reporte de fallos.",
+        "Pytest solo sirve para tests de integración; unittest para tests unitarios.",
+        "Son idénticos en funcionalidad y sintaxis."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Con Pytest, un test es simplemente una función que empieza con test_: 'def test_suma(): assert suma(2,3) == 5'. No necesita clases. Las fixtures permiten reutilizar setup/teardown con @pytest.fixture. Los mensajes de error son más descriptivos que los de unittest."
+    },
+    {
+      "id": 117,
+      "categoria": "python",
+      "texto": "¿Qué hace la función any() en Python?",
+      "opciones": [
+        "Devuelve True si todos los elementos del iterable son verdaderos.",
+        "Devuelve True si al menos un elemento del iterable es verdadero.",
+        "Devuelve el primer elemento verdadero del iterable.",
+        "Verifica si cualquier tipo puede convertirse a booleano."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "any([False, False, True]) devuelve True. any([]) devuelve False (vacío). Su complemento es all(), que requiere que todos sean verdaderos. Son muy útiles con generators: any(x > 10 for x in numeros) verifica sin crear una lista intermedia."
+    },
+    {
+      "id": 118,
+      "categoria": "python",
+      "texto": "¿Qué es el método __repr__ y en qué se diferencia de __str__?",
+      "opciones": [
+        "Son idénticos, Python los usa de forma intercambiable.",
+        "__repr__ es la representación técnica/debug del objeto (usada en consola); __str__ es la representación amigable para el usuario final.",
+        "__str__ es para strings; __repr__ para cualquier tipo.",
+        "__repr__ solo se usa en testing; __str__ en producción."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "__repr__ debe devolver una representación que idealmente permita recrear el objeto: 'Punto(x=1, y=2)'. Es lo que se muestra en el REPL. __str__ es para el usuario: 'El punto está en (1, 2)'. Si solo implementás __repr__, Python lo usa como fallback para __str__."
+    },
+    {
+      "id": 119,
+      "categoria": "python",
+      "texto": "¿Qué hace el método .items() en un diccionario Python?",
+      "opciones": [
+        "Devuelve solo los valores del diccionario.",
+        "Devuelve una vista de pares (clave, valor) del diccionario, iterable con for.",
+        "Devuelve la cantidad de elementos del diccionario.",
+        "Convierte el diccionario en una lista de claves."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "dict.items() devuelve una vista de tuplas (clave, valor). La forma idiomática de iterar un diccionario: 'for clave, valor in mi_dict.items():'. Las vistas (.keys(), .values(), .items()) reflejan los cambios al diccionario en tiempo real, son más eficientes que crear listas."
+    },
+    {
+      "id": 120,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el 'Principio de Sustitución de Liskov' (LSP)?",
+      "opciones": [
+        "Las subclases deben poder usarse en lugar de sus clases padre sin alterar la corrección del programa.",
+        "Las clases hijas deben tener más métodos que las clases padre.",
+        "Los objetos deben poder sustituirse por otros objetos del mismo tipo.",
+        "Una subclase puede ignorar los contratos de la clase padre si necesita comportamiento diferente."
+      ],
+      "respuestaCorrecta": 0,
+      "explicacion": "LSP (L de SOLID): si Pato hereda de Ave, debería poder usarse en cualquier lugar donde se usa Ave sin romper el programa. Viola LSP si la subclase lanza excepciones que el padre no lanza, o si cambia el contrato (precondiciones más fuertes, postcondiciones más débiles). Garantiza que la herencia sea semánticamente correcta."
+    },
+    {
+      "id": 121,
+      "categoria": "buenas_practicas",
+      "texto": "¿Cuál es la diferencia entre git merge y git rebase?",
+      "opciones": [
+        "git merge es más rápido; git rebase es más seguro.",
+        "git merge integra dos ramas creando un commit de fusión; git rebase reescribe los commits de una rama sobre otra, resultando en un historial lineal.",
+        "git rebase solo funciona con ramas locales.",
+        "No hay diferencia práctica, producen el mismo resultado en el repositorio."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "merge preserva el historial completo con un merge commit. rebase reescribe los commits de tu rama como si hubieran partido del punto actual de la rama base: historial más limpio y lineal. La regla de oro: nunca hacer rebase de commits ya pusheados a una rama compartida, ya que reescribe la historia."
+    },
+    {
+      "id": 122,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es un 'git stash'?",
+      "opciones": [
+        "Una rama especial para trabajo en progreso.",
+        "Un área temporal donde guardar cambios no commiteados para poder cambiar de contexto sin perderlos.",
+        "Un alias de git commit -m 'WIP'.",
+        "Un archivo de configuración de Git."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "git stash guarda tus cambios locales en una pila temporal y limpia el working directory. Después podés cambiar de rama, resolver algo urgente, y volver con git stash pop. Útil para interrupciones inesperadas. git stash list muestra los stashes; git stash apply aplica sin eliminar."
+    },
+    {
+      "id": 123,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es un Pull Request (PR) o Merge Request?",
+      "opciones": [
+        "Un comando de Git para obtener cambios remotos.",
+        "Una solicitud formal para revisar y aprobar código antes de integrarlo en la rama principal.",
+        "Una petición para acceso a un repositorio privado.",
+        "Un proceso automático de deploy al hacer push."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un PR es el mecanismo de revisión de código en plataformas como GitHub/GitLab. Permite que otros revisen los cambios, hagan comentarios, soliciten modificaciones y aprueben antes de mergear. Es fundamental en equipos para mantener la calidad y compartir conocimiento."
+    },
+    {
+      "id": 124,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el 'gitflow' workflow?",
+      "opciones": [
+        "Una interfaz gráfica para Git.",
+        "Un modelo de branching con ramas dedicadas: main/master, develop, feature, release y hotfix, cada una con un propósito específico.",
+        "Un sistema de CI/CD integrado con Git.",
+        "Un formato estándar para mensajes de commit."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Gitflow organiza el trabajo: main tiene código de producción, develop integra features, las ramas feature/* se crean desde develop para cada funcionalidad, release/* para preparar versiones, hotfix/* para parches urgentes en producción. Útil en proyectos con releases programados."
+    },
+    {
+      "id": 125,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el TDD (Test-Driven Development)?",
+      "opciones": [
+        "Una metodología donde los tests se escriben después del código de producción.",
+        "Una metodología donde primero se escribe el test (que falla), luego el código mínimo para que pase, y luego se refactoriza.",
+        "Un tipo de testing automatizado para interfaces de usuario.",
+        "Una práctica exclusiva de Java y C#."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "TDD sigue el ciclo Red-Green-Refactor: 1) Escribir un test que falla (Red). 2) Escribir el código mínimo para que pase (Green). 3) Refactorizar manteniendo los tests en verde. Produce código bien diseñado, testeable por definición, y con alta cobertura naturalmente."
+    },
+    {
+      "id": 126,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es un mock en testing?",
+      "opciones": [
+        "Un test falso que siempre pasa.",
+        "Un objeto simulado que reemplaza una dependencia real para controlar su comportamiento durante un test.",
+        "Una copia del entorno de producción para tests.",
+        "Un tipo de test de carga para simular múltiples usuarios."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los mocks simulan dependencias (APIs externas, bases de datos, servicios) para que los tests sean rápidos, reproducibles y no dependan de recursos externos. En Python: unittest.mock.MagicMock. Permiten verificar que el código llamó a la dependencia con los argumentos correctos."
+    },
+    {
+      "id": 127,
+      "categoria": "buenas_practicas",
+      "texto": "¿Cuál es la diferencia entre un test unitario, de integración y end-to-end?",
+      "opciones": [
+        "Solo se diferencian en la velocidad de ejecución.",
+        "Unitario prueba componentes aislados; de integración prueba la interacción entre componentes; E2E prueba el sistema completo desde la perspectiva del usuario.",
+        "Son tres nombres para el mismo tipo de test.",
+        "Unitario es más importante que E2E siempre."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Tests unitarios: rápidos, aislados, testean una función o clase. Tests de integración: prueban que dos o más componentes funcionan juntos (ej: servicio + base de datos). E2E: simulan el flujo completo del usuario (ej: con Selenium). La pirámide de tests sugiere muchos unitarios, algunos de integración, pocos E2E."
+    },
+    {
+      "id": 128,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'pathlib' en Python y cuándo usarlo sobre 'os.path'?",
+      "opciones": [
+        "Es una alternativa a os.path solo para Windows.",
+        "Es un módulo orientado a objetos para manipular rutas de archivos, más legible y expresivo que os.path.",
+        "Es una librería para trabajar con URLs.",
+        "pathlib y os.path son idénticos en funcionalidad y sintaxis."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "pathlib (Python 3.4+) representa rutas como objetos Path: from pathlib import Path; p = Path('directorio/archivo.txt'). Operaciones intuitivas: p.parent, p.name, p.suffix, p.exists(), p / 'subdir'. El operador / concatena rutas. Es la forma moderna recomendada sobre os.path."
+    },
+    {
+      "id": 129,
+      "categoria": "python",
+      "texto": "¿Qué es la función filter() en Python?",
+      "opciones": [
+        "Transforma cada elemento de un iterable con una función.",
+        "Devuelve un iterador con los elementos del iterable para los que la función retorna True.",
+        "Elimina los elementos duplicados de una lista.",
+        "Ordena un iterable según un criterio booleano."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "filter(funcion, iterable) devuelve un iterador lazy con los elementos que superan la condición. list(filter(lambda x: x > 0, [-1, 2, -3, 4])) da [2, 4]. En Python 3 es preferible una list comprehension: [x for x in datos if x > 0], que es más legible."
+    },
+    {
+      "id": 130,
+      "categoria": "python",
+      "texto": "¿Qué hace el decorador @staticmethod y cuándo tiene sentido usarlo?",
+      "opciones": [
+        "Hace que el método no pueda ser sobreescrito en subclases.",
+        "Define un método que no recibe ni 'self' ni 'cls', útil para funciones de utilidad relacionadas con la clase pero que no necesitan acceder a ella.",
+        "Hace que el método sea accesible solo desde dentro de la clase.",
+        "Convierte el método en una propiedad de la clase."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Un staticmethod es una función normal que vive en el namespace de la clase por organización conceptual, no porque necesite acceder a instancia o clase. Ejemplo: Temperatura.celsius_a_fahrenheit(100). Podría ser una función suelta, pero ponerla en la clase comunica que está relacionada con ese concepto."
+    },
+    {
+      "id": 131,
+      "categoria": "python",
+      "texto": "¿Qué es el método __len__ en Python?",
+      "opciones": [
+        "Un método que devuelve la memoria usada por el objeto.",
+        "Un método especial (dunder) que se invoca cuando se llama len() sobre el objeto, permitiendo que los objetos personalizados soporten len().",
+        "Un atributo automático que Python asigna a todos los objetos.",
+        "Un método exclusivo de listas y strings."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Los métodos dunder (double underscore) son el protocolo de Python para sobrecarga de operadores y funciones built-in. Si tu clase define __len__, len(mi_objeto) funciona. Similarmente: __getitem__ para [], __iter__ para for, __add__ para +. Hace que tus objetos se comporten como tipos nativos."
+    },
+    {
+      "id": 132,
+      "categoria": "python",
+      "texto": "¿Qué hace la función isinstance() en Python?",
+      "opciones": [
+        "Crea una nueva instancia de una clase.",
+        "Verifica si un objeto es una instancia de una clase o de alguna de sus clases padre.",
+        "Compara dos instancias por valor.",
+        "Devuelve la clase de un objeto, igual que type()."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "isinstance(objeto, Clase) devuelve True si el objeto es de esa clase o de una subclase. Diferente a type(objeto) == Clase que no considera herencia. Preferir isinstance() sobre type() para ser compatible con polimorfismo. También acepta tupla de clases: isinstance(x, (int, float))."
+    },
+    {
+      "id": 133,
+      "categoria": "javascript",
+      "texto": "¿Qué hace el método element.closest() en el DOM?",
+      "opciones": [
+        "Devuelve el elemento más cercano al cursor del mouse.",
+        "Recorre los ancestros del elemento hacia arriba buscando el primero que coincida con el selector CSS.",
+        "Devuelve el hermano más cercano del elemento.",
+        "Calcula la distancia en píxeles entre dos elementos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "closest() es útil en event delegation: dentro de un handler, event.target.closest('.mi-clase') sube por el DOM desde el elemento clickeado hasta encontrar el ancestro con esa clase. Si no encuentra ninguno, devuelve null. Muy usado para encontrar el contenedor relevante desde un hijo."
+    },
+    {
+      "id": 134,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método IntersectionObserver en el navegador?",
+      "opciones": [
+        "Un método para detectar colisiones entre elementos CSS.",
+        "Una API para observar cuándo un elemento entra o sale del viewport, sin necesidad de escuchar el evento scroll.",
+        "Un método para detectar cambios en los estilos de un elemento.",
+        "Una API exclusiva de Node.js para observar archivos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "IntersectionObserver detecta eficientemente si un elemento es visible en el viewport. Ideal para lazy loading de imágenes, animaciones al scroll, paginación infinita. Es mucho más eficiente que escuchar el evento scroll: no bloquea el hilo principal y usa el compositor del navegador."
+    },
+    {
+      "id": 135,
+      "categoria": "javascript",
+      "texto": "¿Qué hace classList.toggle() en JavaScript?",
+      "opciones": [
+        "Alterna el display del elemento entre 'block' y 'none'.",
+        "Agrega la clase si el elemento no la tiene, o la elimina si ya la tiene.",
+        "Muestra u oculta el elemento con una animación CSS.",
+        "Intercambia todas las clases entre dos elementos."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "classList.toggle('activo') es el equivalente de: if (el.classList.contains('activo')) { el.classList.remove('activo') } else { el.classList.add('activo') }. Acepta un segundo argumento booleano: toggle('activo', condicion) fuerza agregar si es true, eliminar si es false."
+    },
+    {
+      "id": 136,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método Array.from() en JavaScript?",
+      "opciones": [
+        "Crea un array con un número específico de elementos vacíos.",
+        "Crea un array real a partir de objetos array-like o iterables (NodeList, Set, Map, strings, arguments).",
+        "Importa un array desde un archivo JSON.",
+        "Crea una copia profunda de un array."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Array.from() convierte iterables en arrays reales. Array.from(nodeList) convierte una NodeList. Array.from('hola') da ['h','o','l','a']. Array.from({length: 5}, (_, i) => i) da [0,1,2,3,4]. También acepta una función de mapeo como segundo argumento."
+    },
+    {
+      "id": 137,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método element.insertAdjacentHTML() y cuándo usarlo?",
+      "opciones": [
+        "Reemplaza completamente el contenido interno del elemento.",
+        "Inserta HTML en una posición específica relativa al elemento sin afectar el resto del contenido.",
+        "Agrega un elemento adyacente al final del documento.",
+        "Es un alias moderno de innerHTML que agrega en vez de reemplazar."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "insertAdjacentHTML(posicion, html) inserta sin parsear todo el elemento. Posiciones: 'beforebegin' (antes del elemento), 'afterbegin' (primer hijo), 'beforeend' (último hijo), 'afterend' (después del elemento). Más eficiente que innerHTML+= porque no destruye y recrea el DOM existente."
+    },
+    {
+      "id": 138,
+      "categoria": "javascript",
+      "texto": "¿Qué es el objeto FormData en JavaScript?",
+      "opciones": [
+        "Un objeto para validar formularios HTML.",
+        "Un objeto que representa los datos de un formulario, útil para enviar datos (incluyendo archivos) via fetch.",
+        "Un array especial que almacena los campos de un formulario.",
+        "Una API para crear formularios dinámicamente desde JavaScript."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "FormData captura los campos de un form: new FormData(document.querySelector('form')). También se puede crear manualmente: fd.append('nombre', valor). Se pasa directamente a fetch como body. Maneja automáticamente el encoding correcto para archivos (multipart/form-data)."
+    },
+    {
+      "id": 139,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método requestAnimationFrame() y por qué es preferible a setTimeout para animaciones?",
+      "opciones": [
+        "Es más rápido porque usa el GPU directamente.",
+        "Se sincroniza con el ciclo de repintado del navegador (~60fps), produce animaciones más fluidas y pausa automáticamente en tabs inactivos.",
+        "Permite animaciones de más de 60fps.",
+        "Es el único método que puede modificar propiedades CSS con JavaScript."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "rAF ejecuta el callback antes del próximo repintado del navegador. Ventajas: sincronizado con la pantalla (sin tearing), el navegador lo pausa en tabs ocultos (ahorra batería), permite que el navegador optimice la animación. Para animar: function animar() { actualizarEstado(); rAF(animar); } rAF(animar)."
+    },
+    {
+      "id": 140,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el principio de 'falla rápido' (fail fast)?",
+      "opciones": [
+        "Un sistema que se reinicia automáticamente ante cualquier error.",
+        "El principio de detectar y reportar errores lo antes posible en vez de continuar con estado inválido.",
+        "Una estrategia de deploy que reduce el tiempo de inactividad.",
+        "Un patrón de manejo de errores que siempre lanza excepciones."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Fail fast indica que cuando algo va mal, el sistema debe detenerse y reportar el error inmediatamente, no seguir y producir resultados incorrectos silenciosamente. Validar argumentos al inicio de una función, usar assertions, lanzar excepciones ante precondiciones violadas. Los errores tardíos son mucho más difíciles de diagnosticar."
+    },
+    {
+      "id": 141,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es la normalización en bases de datos relacionales?",
+      "opciones": [
+        "El proceso de convertir todos los strings a minúsculas.",
+        "El proceso de organizar las tablas para reducir redundancia y dependencias anómalas, dividiendo datos en tablas relacionadas.",
+        "La conversión de una base de datos a formato JSON.",
+        "El proceso de indexar todas las columnas para optimizar consultas."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "La normalización (1NF, 2NF, 3NF) elimina datos duplicados y asegura integridad. Ejemplo: en vez de repetir el nombre del cliente en cada fila de pedidos, tener una tabla clientes y referenciarla con un ID (clave foránea). Reduce inconsistencias y facilita actualizaciones."
+    },
+    {
+      "id": 142,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el patrón Factory?",
+      "opciones": [
+        "Un patrón que garantiza una sola instancia de una clase.",
+        "Un patrón de creación que define una interfaz para crear objetos, permitiendo que las subclases o configuración decidan qué clase instanciar.",
+        "Un patrón para organizar el código en módulos como una fábrica.",
+        "Un patrón exclusivo para sistemas de manufactura."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Factory desacopla la creación de objetos de su uso. En vez de 'new ConexionMySQL()' directamente, se llama a 'ConexionFactory.crear('mysql')'. Esto permite cambiar la implementación (a PostgreSQL) sin modificar el código cliente. Muy útil para abstraer la creación de objetos complejos."
+    },
+    {
+      "id": 143,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'logging' en Python y por qué es mejor que usar print()?",
+      "opciones": [
+        "Es un módulo para guardar logs en bases de datos automáticamente.",
+        "Es un módulo de la librería estándar para registrar eventos con niveles (DEBUG, INFO, WARNING, ERROR, CRITICAL), configuración de formato y destinos.",
+        "Es una versión mejorada de print() con colores.",
+        "Es exclusivo para aplicaciones web."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "logging permite: niveles para filtrar mensajes por gravedad, múltiples destinos (consola, archivo, servicio remoto), timestamps y contexto automáticos, activar/desactivar sin modificar código. Un print() en producción no se puede desactivar sin editar el código; el logging sí."
+    },
+    {
+      "id": 144,
+      "categoria": "python",
+      "texto": "¿Cómo funciona la sobrecarga del operador + en Python con el método __add__?",
+      "opciones": [
+        "Python no permite sobrecargar operadores.",
+        "Definiendo __add__(self, other) en la clase, se personaliza el comportamiento de + cuando se usa con instancias de esa clase.",
+        "__add__ solo se puede definir para clases numéricas.",
+        "La sobrecarga de + en Python requiere importar el módulo 'operator'."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Si tu clase Vector define __add__(self, other): return Vector(self.x+other.x, self.y+other.y), entonces v1 + v2 funciona. Python llama a v1.__add__(v2) automáticamente. Existen métodos para todos los operadores: __sub__, __mul__, __eq__, __lt__, __str__, etc. Permite que tus objetos se comporten como tipos nativos."
+    },
+    {
+      "id": 145,
+      "categoria": "python",
+      "texto": "¿Qué es el módulo 'argparse' en Python?",
+      "opciones": [
+        "Un módulo para parsear archivos JSON y XML.",
+        "Un módulo de la librería estándar para definir y parsear argumentos de línea de comandos.",
+        "Una herramienta para analizar el rendimiento de scripts Python.",
+        "Un módulo para parsear URLs y query strings."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "argparse facilita crear CLIs: define argumentos posicionales y opcionales, tipos, valores por defecto y genera automáticamente el mensaje de ayuda (--help). Ejemplo: parser.add_argument('archivo', help='archivo a procesar'); parser.add_argument('--verbose', action='store_true'). Alternativa moderna: el paquete 'click'."
+    },
+    {
+      "id": 146,
+      "categoria": "python",
+      "texto": "¿Qué hace el método .update() en un diccionario Python?",
+      "opciones": [
+        "Actualiza Python a la última versión disponible.",
+        "Agrega o sobreescribe pares clave-valor de otro diccionario u iterable de pares en el diccionario actual.",
+        "Refresca los valores del diccionario desde una fuente externa.",
+        "Ordena el diccionario por sus claves."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "dict.update(otro_dict) fusiona los contenidos. Si una clave ya existe, sobreescribe el valor. Equivalente moderno: {**dict1, **dict2} o dict1 | dict2 (Python 3.9+). Útil para configuraciones: config = {**defaults, **user_config} donde user_config sobreescribe los defaults."
+    },
+    {
+      "id": 147,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método structuredClone() en JavaScript?",
+      "opciones": [
+        "Un método para clonar la estructura del DOM.",
+        "Una función global moderna que realiza una copia profunda (deep clone) de un objeto.",
+        "Un método exclusivo de Node.js para clonar módulos.",
+        "Una alternativa a Object.create() para herencia."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "structuredClone() (moderno, sin librería) hace una copia profunda real: los objetos y arrays anidados también son copiados, no referenciados. A diferencia de JSON.parse/stringify, maneja Date, Map, Set, ArrayBuffer, referencias circulares. No copia funciones ni nodos del DOM."
+    },
+    {
+      "id": 148,
+      "categoria": "javascript",
+      "texto": "¿Qué es el método console.table() y cuándo es útil?",
+      "opciones": [
+        "Crea una tabla HTML en el documento.",
+        "Muestra arrays u objetos en formato de tabla en la consola del navegador, facilitando la lectura de datos estructurados.",
+        "Es una versión de console.log() para tablas de base de datos.",
+        "Solo funciona en Node.js, no en navegadores."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "console.table([{nombre:'Ana', edad:30}, {nombre:'Juan', edad:25}]) muestra los datos en una tabla visual en DevTools. Mucho más legible que console.log para arrays de objetos. También acepta un segundo argumento para especificar qué columnas mostrar."
+    },
+    {
+      "id": 149,
+      "categoria": "javascript",
+      "texto": "¿Qué es el objeto URL en JavaScript?",
+      "opciones": [
+        "Un string especial que valida URLs automáticamente.",
+        "Una API para parsear, construir y manipular URLs de forma estructurada.",
+        "Un objeto solo disponible en Node.js.",
+        "Una forma de crear links dinámicos en el DOM."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "const url = new URL('https://ejemplo.com/path?q=hola&page=2'). Propiedades: url.hostname, url.pathname, url.searchParams.get('q'). Para modificar: url.searchParams.set('page', 3); url.toString(). Es mucho más robusto que manipular URLs como strings con split/replace."
+    },
+    {
+      "id": 150,
+      "categoria": "buenas_practicas",
+      "texto": "¿Qué es el 'principio de composición sobre herencia'?",
+      "opciones": [
+        "Las funciones siempre son mejores que las clases.",
+        "Es preferible construir objetos componiendo comportamientos mediante composición de objetos en lugar de crear jerarquías de herencia profundas.",
+        "La herencia múltiple es siempre superior a la herencia simple.",
+        "Los mixins son siempre preferibles a las interfaces."
+      ],
+      "respuestaCorrecta": 1,
+      "explicacion": "Las jerarquías de herencia profundas son rígidas y difíciles de cambiar. La composición (un objeto 'tiene un' en vez de 'es un') es más flexible: un Robot puede tener un Motor y un Sensor en vez de heredar de MaquinaConMotor y MaquinaConSensor. Cambiar un componente no afecta toda la jerarquía."
     }
   ],
   "preguntasEscritas": [
     {
-      "id": 101,
-      "texto": "¿Qué palabra clave introducida en ES6 se utiliza para declarar una variable que NO puede ser reasignada?",
+      "id": 1001,
+      "texto": "¿Qué palabra clave de ES6 declara una variable que no puede ser reasignada?",
       "respuestasValidas": ["const", "constante"],
       "explicacion": "La palabra clave 'const' crea una referencia de solo lectura a un valor."
+    },
+    {
+      "id": 1002,
+      "texto": "Comando de Git para guardar cambios temporalmente en una pila sin hacer commit:",
+      "respuestasValidas": ["stash", "git stash"],
+      "explicacion": "git stash guarda los cambios locales para permitir cambiar de rama sin perder el progreso."
+    },
+    {
+      "id": 1003,
+      "texto": "Nombre del método que actúa como constructor en una clase de Python:",
+      "respuestasValidas": ["__init__", "init", "__init__ ( )"],
+      "explicacion": "__init__ inicializa los atributos del objeto al ser instanciado."
+    },
+    {
+      "id": 1004,
+      "texto": "¿Cuál es la complejidad temporal (Big O) de una búsqueda binaria eficiente?",
+      "respuestasValidas": ["o(log n)", "log n", "logaritmica", "logarítmica"],
+      "explicacion": "Al dividir el espacio de búsqueda a la mitad en cada paso, su complejidad es O(log n)."
+    },
+    {
+      "id": 1005,
+      "texto": "Método nativo de JS para realizar peticiones HTTP asíncronas que devuelve una Promise:",
+      "respuestasValidas": ["fetch", "fetch()", "window.fetch"],
+      "explicacion": "fetch() reemplazó al antiguo XMLHttpRequest para peticiones de red."
+    },
+    {
+      "id": 1006,
+      "texto": "¿Cómo se llama la estructura de datos que sigue el principio LIFO (Last In, First Out)?",
+      "respuestasValidas": ["pila", "stack"],
+      "explicacion": "En una pila, el último elemento en entrar es el primero en salir."
+    },
+    {
+      "id": 1007,
+      "texto": "Acrónimo del principio que indica que no se debe duplicar lógica en el sistema:",
+      "respuestasValidas": ["dry", "don't repeat yourself"],
+      "explicacion": "Don't Repeat Yourself (DRY) busca centralizar la lógica para facilitar el mantenimiento."
+    },
+    {
+      "id": 1008,
+      "texto": "¿Qué operador de JS (??) devuelve el lado derecho solo si el izquierdo es null o undefined?",
+      "respuestasValidas": ["nullish", "nullish coalescing", "coalescencia nula"],
+      "explicacion": "El operador Nullish Coalescing permite manejar valores por defecto de forma segura."
+    },
+    {
+      "id": 1009,
+      "texto": "Patrón de arquitectura que separa los datos, la interfaz y la lógica de control:",
+      "respuestasValidas": ["mvc", "modelo vista controlador"],
+      "explicacion": "Model-View-Controller es fundamental para organizar aplicaciones escalables."
+    },
+    {
+      "id": 1010,
+      "texto": "En Python, ¿cómo se llama la función anónima definida en una sola línea?",
+      "respuestasValidas": ["lambda", "funcion lambda", "lambda function"],
+      "explicacion": "Las funciones lambda son útiles para operaciones rápidas como argumentos de otras funciones."
+    },
+    {
+      "id": 1011,
+      "texto": "Comando de Git para descargar un repositorio remoto por primera vez a tu máquina:",
+      "respuestasValidas": ["clone", "git clone"],
+      "explicacion": "git clone crea una copia local exacta del repositorio remoto."
+    },
+    {
+      "id": 1012,
+      "texto": "¿Cómo se llama el comportamiento de JS donde las declaraciones se mueven al inicio del scope?",
+      "respuestasValidas": ["hoisting", "elevacion", "elevación"],
+      "explicacion": "El hoisting permite usar funciones o variables 'var' antes de su declaración formal."
+    },
+    {
+      "id": 1013,
+      "texto": "Tipo de dato en Python que es similar a una lista pero inmutable (se define con paréntesis):",
+      "respuestasValidas": ["tupla", "tuple"],
+      "explicacion": "Las tuplas no pueden modificarse una vez creadas, lo que las hace seguras y rápidas."
+    },
+    {
+      "id": 1014,
+      "texto": "¿Qué metodología de desarrollo propone escribir primero el test y luego el código funcional?",
+      "respuestasValidas": ["tdd", "test driven development"],
+      "explicacion": "TDD asegura que el código cumpla con los requisitos desde el inicio."
+    },
+    {
+      "id": 1015,
+      "texto": "Proceso de mejorar la estructura interna del código sin cambiar su comportamiento externo:",
+      "respuestasValidas": ["refactor", "refactorizacion", "refactorización", "refactoring"],
+      "explicacion": "Refactorizar es clave para pagar la deuda técnica y mejorar la legibilidad."
+    },
+    {
+      "id": 1016,
+      "texto": "Objeto simulado que reemplaza una dependencia real (como una API) durante un test unitario:",
+      "respuestasValidas": ["mock", "objeto mock", "simulacro"],
+      "explicacion": "Los mocks permiten testear componentes de forma aislada y predecible."
+    },
+    {
+      "id": 1017,
+      "texto": "¿Qué formato de texto ligero se usa universalmente para intercambiar datos entre cliente y servidor?",
+      "respuestasValidas": ["json", "javascript object notation"],
+      "explicacion": "JSON es el estándar de facto para la comunicación en la web moderna."
+    },
+    {
+      "id": 1018,
+      "texto": "Nombre de la guía de estilo oficial para escribir código Python de forma legible:",
+      "respuestasValidas": ["pep 8", "pep8"],
+      "explicacion": "La PEP 8 define convenciones de indentación, nombres y estructura en Python."
+    },
+    {
+      "id": 1019,
+      "texto": "Acrónimo de los cinco principios de diseño orientado a objetos para hacer el código mantenible:",
+      "respuestasValidas": ["solid"],
+      "explicacion": "SOLID incluye Responsabilidad Única, Abierto/Cerrado, Liskov, Interfaz y Dependencia."
+    },
+    {
+      "id": 1020,
+      "texto": "En JS, ¿qué método de array crea uno nuevo con los elementos que pasan una condición?",
+      "respuestasValidas": ["filter", "filter()", "array.filter"],
+      "explicacion": "filter() es una función de orden superior esencial para manipular colecciones."
+    },
+    {
+      "id": 1021,
+      "texto": "¿Qué operador de tres puntos (...) permite expandir un iterable en JS?",
+      "respuestasValidas": ["spread", "spread operator", "operador spread"],
+      "explicacion": "El spread operator facilita copiar arrays o pasar múltiples argumentos a funciones."
+    },
+    {
+      "id": 1022,
+      "texto": "Almacenamiento del navegador que persiste los datos incluso al cerrar la pestaña o el browser:",
+      "respuestasValidas": ["localstorage", "local storage"],
+      "explicacion": "LocalStorage permite guardar hasta 5MB de datos tipo string por dominio."
+    },
+    {
+      "id": 1023,
+      "texto": "En Python, ¿qué gestor de paquetes se usa para instalar librerías externas (bibliotecas)?",
+      "respuestasValidas": ["pip"],
+      "explicacion": "pip descarga e instala paquetes desde el repositorio oficial PyPI."
+    },
+    {
+      "id": 1024,
+      "texto": "Representación en objetos de la estructura de una página web que JS puede manipular:",
+      "respuestasValidas": ["dom", "document object model"],
+      "explicacion": "El DOM es la interfaz que permite a JS cambiar el contenido, estilo y estructura del HTML."
+    },
+    {
+      "id": 1025,
+      "texto": "Lenguaje estándar para realizar consultas y gestionar bases de datos relacionales:",
+      "respuestasValidas": ["sql", "structured query language"],
+      "explicacion": "SQL es fundamental para interactuar con motores como PostgreSQL, MySQL o SQLite."
+    },
+    {
+      "id": 1026,
+      "texto": "Patrón de diseño que garantiza que una clase tenga una única instancia en toda la app:",
+      "respuestasValidas": ["singleton"],
+      "explicacion": "Singleton es útil para coordinar objetos únicos como loggers o conexiones a DB."
+    },
+    {
+      "id": 1027,
+      "texto": "¿Cómo se llama la función que se pasa a otra función para ser ejecutada más tarde?",
+      "respuestasValidas": ["callback"],
+      "explicacion": "Los callbacks son la base del manejo de eventos y la asincronía tradicional en JS."
+    },
+    {
+      "id": 1028,
+      "texto": "En Python, ¿qué entorno aislado permite instalar dependencias sin afectar al sistema global?",
+      "respuestasValidas": ["entorno virtual", "venv", "virtual environment"],
+      "explicacion": "Usar entornos virtuales evita conflictos de versiones entre diferentes proyectos."
+    },
+    {
+      "id": 1029,
+      "texto": "En JS, ¿qué palabra clave dentro de una función async pausa la ejecución hasta que la promesa resuelve?",
+      "respuestasValidas": ["await"],
+      "explicacion": "await permite escribir código asíncrono que se lee de forma secuencial y limpia."
+    },
+    {
+      "id": 1030,
+      "texto": "¿Qué siglas representan el conjunto básico de operaciones en una base de datos (Crear, Leer, Actualizar, Borrar)?",
+      "respuestasValidas": ["crud"],
+      "explicacion": "CRUD (Create, Read, Update, Delete) resume las funciones esenciales de cualquier gestión de datos."
     }
   ]
 }

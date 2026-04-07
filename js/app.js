@@ -4,27 +4,35 @@
 
 const state = {
     preguntas: [],
-    preguntasEscritas: [], // Nueva lista para la fase 2
+    preguntasEscritas: [],
     preguntaActualIndex: 0,
     respuestasCorrectas: 0,
-    faseEscrita: false // Bandera para saber en qué parte del juego estamos
+    faseEscrita: false 
 };
 
+// (Shuffle)
+function obtenerAleatorias(array, cantidad) {
+    const mezclado = [...array].sort(() => 0.5 - Math.random());
+    return mezclado.slice(0, cantidad);
+}
+
 async function initApp() {
-    // 1. Consultamos si ya jugó hoy
     if (checkHasPlayedToday()) {
         const resultadoPrevio = getTodayResults();
         showBlockedScreen(resultadoPrevio);
         return;
     }
 
-    // 2. Buscamos los datos (ahora el JSON trae todo el objeto)
     const data = await fetchPreguntas();
     
-    // Validamos que exista la propiedad 'preguntas' y tenga elementos
     if (data && data.preguntas && data.preguntas.length > 0) {
-        state.preguntas = data.preguntas;
-        state.preguntasEscritas = data.preguntasEscritas || [];
+        // 20 aleatorias para la Fase 1
+        state.preguntas = obtenerAleatorias(data.preguntas, 20);
+        
+        //  5 aleatorias para la Fase Escrita
+        if (data.preguntasEscritas && data.preguntasEscritas.length > 0) {
+            state.preguntasEscritas = obtenerAleatorias(data.preguntasEscritas, 5);
+        }
         
         renderQuestion(state.preguntas[state.preguntaActualIndex], state.preguntaActualIndex, state.preguntas.length);
     } else {
@@ -48,21 +56,18 @@ function handleOptionSelect(evento, preguntaActual) {
     showFeedback(isCorrect, preguntaActual.explicacion, opcionesNodos, indiceElegido, indiceCorrecto);
 }
 
-// ---- MANEJO DEL DESAFÍO ESCRITO (RF4: Tolerancia) ---- //
+// ---- MANEJO DEL DESAFÍO ESCRITO ---- //
 function handleWrittenSubmit(respuestaUsuario, pregunta) {
-    // 1. Normalizamos: Pasamos todo a minúsculas y quitamos espacios al inicio y final
     const respuestaLimpia = respuestaUsuario.toLowerCase().trim();
 
-    // 2. Tolerancia: Chequeamos si lo que escribió INCLUYE alguna de las respuestas válidas
     const isCorrect = pregunta.respuestasValidas.some(valida => {
         return respuestaLimpia.includes(valida.toLowerCase());
     });
 
     if (isCorrect) {
-        state.respuestasCorrectas++; // Sumamos un punto extra
+        state.respuestasCorrectas++; 
     }
 
-    // 3. Mostramos feedback
     uiElements.feedbackTitle.textContent = isCorrect ? '¡Impecable! 🎉' : 'Casi... 😅';
     uiElements.feedbackTitle.style.color = isCorrect ? 'var(--success)' : 'var(--error)';
     uiElements.feedbackText.textContent = pregunta.explicacion;
@@ -73,48 +78,48 @@ function handleWrittenSubmit(respuestaUsuario, pregunta) {
 function handleNextQuestion() {
     uiElements.feedbackContainer.classList.add('hidden');
 
-    // Si ya estábamos en la fase escrita y dimos "Siguiente", terminamos el juego
     if (state.faseEscrita) {
-        finalizarJuego();
+        state.preguntaActualIndex++;
+        // Verificamos si quedan preguntas de la Fase Escrita
+        if (state.preguntaActualIndex < state.preguntasEscritas.length) {
+            renderWrittenQuestion(state.preguntasEscritas[state.preguntaActualIndex], state.preguntaActualIndex, state.preguntasEscritas.length);
+        } else {
+            finalizarJuego();
+        }
         return;
     }
 
-    // Si estábamos en opción múltiple, avanzamos de índice
+    // Flujo normal Fase 1
     state.preguntaActualIndex++;
 
     if (state.preguntaActualIndex < state.preguntas.length) {
-        // Sigue habiendo preguntas múltiples
         renderQuestion(state.preguntas[state.preguntaActualIndex], state.preguntaActualIndex, state.preguntas.length);
     } else {
-        // Llegamos al final de la Fase 1. Evaluamos si desbloquea la Fase 2 (RF3)
+        // Pasamos a Fase 2 si sacó 75% o más en la Fase 1
         const porcentaje = (state.respuestasCorrectas / state.preguntas.length) * 100;
         
         if (porcentaje >= 75 && state.preguntasEscritas.length > 0) {
             state.faseEscrita = true;
-            // Mostramos la primera pregunta escrita (para este MVP asumimos que hay 1)
-            renderWrittenQuestion(state.preguntasEscritas[0]);
+            state.preguntaActualIndex = 0; // Reseteamos el índice para la fase escrita
+            renderWrittenQuestion(state.preguntasEscritas[0], 0, state.preguntasEscritas.length);
         } else {
-            // No le alcanzó el puntaje, termina acá.
             finalizarJuego();
         }
     }
 }
 
 function finalizarJuego() {
-    // Calculamos el total de preguntas jugadas
     let totalJugadas = state.preguntas.length;
     if (state.faseEscrita) {
-        totalJugadas += 1; // Sumamos la escrita al total
+        totalJugadas += state.preguntasEscritas.length; 
     }
 
     const porcentaje = (state.respuestasCorrectas / totalJugadas) * 100;
     const superoPrueba = porcentaje >= 75;
     
-    // Guardamos en LocalStorage
     saveDailyAttempt(state.respuestasCorrectas, totalJugadas, superoPrueba);
     showSummary(state.respuestasCorrectas, totalJugadas);
 }
 
-// Event Listeners Globales
 document.addEventListener('DOMContentLoaded', initApp);
 uiElements.nextBtn.addEventListener('click', handleNextQuestion);
